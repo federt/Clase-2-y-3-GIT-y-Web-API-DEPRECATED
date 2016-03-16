@@ -100,4 +100,51 @@ git checkout develop #Selecciono la branch develop
 git checkout -b feature/newfeature #Creo una nueva feature
 ```
 
-####```git merge
+####```git merge``` 
+
+Una vez terminada una feature, se debe unir el contenido en dicha rama con el que se encuentra en develop. Para ello se utiliza ```git merge```.
+Supongamos que se termina de trabajar en la branch feature/newfeature y se desea unirla a develop. Luego de enviar todos los cambios al repositorio (commit), se debe ejecutar lo siguiente:
+
+```bash
+git checkout develop
+git merge feature/newfeature
+```
+
+Una vez realizado el merge, git intenta enviar los cambios al repositorio. En caso que existan conflictos, este proceso falla y se deben resolver. Los archivos en los que haya conflictos se detallarán en el mensaje luego del merge, y se deberán resolver uno a uno. Si se abre uno de los archivos en conflicto, por ejemplo un html, se puede encontrar algo similar a lo siguiente.
+
+```html
+
+<<<<<<< HEAD:index.html
+<div id="footer">contact : email.support@github.com</div>
+=======
+<div id="footer">
+please contact us at support@github.com
+</div>
+>>>>>>> feature/newfeature:index.html
+
+```
+
+####```git remote```
+Este comando permite gestionar los repositorios remotos. En caso de que hayamos inicializado el repositorio con ```git init``` también podemos usarlo para agregar un servidor de repositorio.
+
+```git remote add origin https://github.com/DisAplicaciones2ORT0316/Clase2.git```
+
+####```git fetch```
+En caso de tener branches remotas, este comando permite traer toda la información de un repositorio remoto que no se tenga en el repositorio local. Por ejemplo: Si un compañero realiza un cambio en su repositorio local, y envía estos datos al repositorio remoto, el otro compañero puede utilizar este comando para visualizar los cambios, sin necesidad de sumarlos a su branch local.
+
+Se utiliza de la siguiente manera.
+
+```git fetch origin```
+
+También se puede hacer con una única rama.
+
+```git fetch origin develop```
+
+####```git pull```
+
+En caso de setear un branch local para que siga a una branch remota, utilizar este comando permite hacer un ```fetch``` y luego un ```merge``` de la rama remota con la rama local.
+
+####```git push```
+
+Este último comando lo que realiza es enviar todos los commits realizados en el repositorio local al repositorio remoto.
+```git remote push origin develop```
