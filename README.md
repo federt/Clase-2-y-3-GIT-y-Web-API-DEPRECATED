@@ -16,7 +16,8 @@
 ```bash
 git init
 git clone
-git add 
+git add
+git status
 git checkout
 git commit
 git fetch
@@ -52,3 +53,9 @@ Los protocolos de transferencia de git pueden ser https, como el anterior, o con
 
 ###Guardando cambios en el repositorio
 
+Luego de iniciado el repositorio, todos los archivos quedan en estado *Untracked*. Esto quiere decir que git no seguirá los cambios que se le realicen al archivo. A partir de ahora, comienza el siguiente ciclo:
+
+
+![](lib/img/ciclogit.png)
+
+Los cambios solo se enviarán al repositorio si están en el área *staged*. Para agregar los archivos, se debe ejecutar ```git add README.md```. De esta manera, ese archivo pasa del estado *untracked* al estado *staged*. Para agregar todos los archivos de nuestra ubicación, se puede utilizar ```git add . ```. 
