@@ -18,10 +18,11 @@ git init
 git clone
 git add
 git status
-git checkout
 git commit
-git fetch
+git checkout
 git merge
+git remote
+git fetch
 git pull
 git push
 ```
@@ -55,7 +56,48 @@ Los protocolos de transferencia de git pueden ser https, como el anterior, o con
 
 Luego de iniciado el repositorio, todos los archivos quedan en estado *Untracked*. Esto quiere decir que git no seguirá los cambios que se le realicen al archivo. A partir de ahora, comienza el siguiente ciclo:
 
-
 ![](lib/img/ciclogit.png)
 
+####```git add```
+
 Los cambios solo se enviarán al repositorio si están en el área *staged*. Para agregar los archivos, se debe ejecutar ```git add README.md```. De esta manera, ese archivo pasa del estado *untracked* al estado *staged*. Para agregar todos los archivos de nuestra ubicación, se puede utilizar ```git add . ```. 
+
+####```git status```
+Una vez que se comienza a trabajar con archivos, es común la necesidad de revisar el estado de los mismos. Para ello se debe utilizar el comando ```git status```.
+
+![](lib/img/gitstatus.png)
+
+A partir de este comando, se describen los archivos que se encuentran staged, modified y los que no se siguen aún. De esta manera es posible determinar que archivos serán incluídos en el próximo commit, y cuáles no.
+
+####```git commit```
+Para enviar los cambios al repositorio, se utiliza el comando ```git commit```. Este comando toma todos los archivos que se encuentran en estado *staged*, y agrega un nuevo snapshot de sus cambios en el repositorio local. Vale recordar que en git, a diferencia de repositorios centralizados, los repositorios son locales y se sincronizan con un repositorio remoto.
+
+En caso de ejecutar el comando únicamente con ```git commit``` se abrirá el editor por defecto configurado en el ambiente. En este caso es Vim.
+
+![](lib/img/gitvim.png)
+
+Para poder escribir el mensaje directamente al hacer el commit, utilizamos la opción ```-m```
+
+```git commit -m "Este es el mensaje del commit"```
+
+Es posible también unir el ```git add``` y el ```git commit``` en una sola sentencia, utilizando la opción ```-a``` de ```commit```.
+
+```git commit -a -m "Este commit incluye todos los archivos que podían ser agregados"```
+
+###Las branches de Git
+
+Git permite utilizar diferentes branches para mantener distintas versiones del código en paralelo. El estándar que se utiliza en el curso es [gitflow](http://nvie.com/posts/a-successful-git-branching-model/).
+
+####```git checkout```
+Para cambiar el branch en la que se está trabajando, se utiliza el comando ```git checkout```.
+Si se está trabajando en ```develop``` y se desea pasar a utilizar ```master```, se realiza el siguiente comando ```git checkout master```. 
+
+
+Para crear una nueva branch, es necesario ubicarse en la branch padre, y realizar ```git checkout -b```. La opción ```-b``` permite crear una branch que se abre de la rama padre. Siguiendo ```gitflow```, si se desea crear una nueva feature, se utilizaría el siguiente comando.
+
+```bash
+git checkout develop #Selecciono la branch develop
+git checkout -b feature/newfeature #Creo una nueva feature
+```
+
+####```git merge
