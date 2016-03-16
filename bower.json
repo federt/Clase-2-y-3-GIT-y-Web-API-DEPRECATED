@@ -1,0 +1,26 @@
+{
+  "name": "reveal.js",
+  "version": "3.2.0",
+  "main": [
+    "js/reveal.js",
+    "css/reveal.css"
+  ],
+  "license": "MIT",
+  "description": "Introducción al curso DA2 Práctico",
+  "authors": [
+    "Alejandro tocar<aletocar@gmail.com>"
+  ],
+  "dependencies": {
+    "headjs": "~1.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DisAplicaciones2ORT0316/Clase1.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ]
+}
