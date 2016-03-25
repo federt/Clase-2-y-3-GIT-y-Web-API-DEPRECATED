@@ -6,7 +6,7 @@
     "css/reveal.css"
   ],
   "license": "MIT",
-  "description": "Introducción al curso DA2 Práctico",
+  "description": "Tercera clase del curso DA2 Práctico",
   "authors": [
     "Alejandro tocar<aletocar@gmail.com>"
   ],
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DisAplicaciones2ORT0316/Clase1.git"
+    "url": "https://github.com/DisAplicaciones2ORT0316/Clase3.git"
   },
   "ignore": [
     "**/.*",
