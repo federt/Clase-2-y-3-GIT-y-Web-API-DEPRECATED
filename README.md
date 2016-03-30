@@ -1,5 +1,6 @@
 # Clase 3 DA2 Práctico
-
+[Ver presentación de la clase](http://disaplicaciones2ort0316.github.io/Clase3/#/)
+[Descargar el pdf] (https://github.com/DisAplicaciones2ORT0316/Clase3/blob/master/Clase3.pdf)
 ## Temas
 
 <!-- MarkdownTOC -->
@@ -8,7 +9,6 @@
 - Ventajas de ASP.NET Web API
 - Características de ASP.NET Web API
 - Introducción a REST
-- Comienzo del desarrollo de Tresana
 
 <!-- /MarkdownTOC -->
 
@@ -174,33 +174,9 @@ A continuación se presentan algunos de los estados disponibles. Para ver la lis
 |       409       | Conflict; used as a response to a PUT request when another caller has dirtied the resource |
 |       500       | Server error; something bad happened, and server might include some indication of the underlying problem |
 
+### Patrón MVC
 
-
-## Comienzo del desarrollo de Tresana
-
-A lo largo del curso, utilizaremos el desarrollo de un producto como ejemplo para navegar entre las tecnologías correspondientes.
-Desarrollaremos Tresana, un gestor de tareas para equipos.
-
-Para el desarrollo de hoy deberemos contar con las siguientes herramientas:
- - Visual Studio 2015 Enterprise
- - SQL Server 2012
- - Cliente Postman
-
-### Creando la estructura del proyecto
-
-Para el desarrollo de la aplicación, deberá crearse una solución Tresana en Visual Studio con los siguientes proyectos:
- - Tresana.Web.Api: ASP.NET Web Application, con el formato vacío, importando Web API únicamente (como se muestra en las imágenes debajo)
- - Tresana.Web.Api.Models: Class Library
- - Tresana.Data: Class Library
- - Tresana.DataAccess: Class Library
-
-![](lib/img/Tresana/WebApplication.png)
-![](lib/img/Tresana/EmptyWebApi.png)
-
-Tresana.Data será el proyecto en el que colocaremos nuestras entidades. Tresana.DataAccess será el que contenga el contexto para EntityFramework. Tresana.Web.Api contendrá los servicios que expondremos a través de nuestra API REST, y Tresana.Web.Api.Models incluirá los modelos de las entidades. Esto último se debe a que no queremos acoplar nuestra api a nuestro modelo de dominio, por lo que generaremos lo que se conoce como DTO (DataTransferObjects). Estos objetos permitirán enviar únicamente los datos que deseo, además de moldearse mejor a las necesidades de la api rest, sin las restricciones de EntityFramework.
-
-En el proyecto Tresana.Data, cree las entidades reflejadas en el siguiente diagrama, dentro del namespace Tresana.Data.Entities
-
-![](lib/img/Tresana/UMLClasses.png)
-
-A continuación, debemos agregar EntityFramework al proyecto de DataAccess, y crear la clase 
+Este es un patrón que permite la separación de responsabilidades entre los elementos de una estructura de software. Establece que se contará con tres categorías de elementos:
+- Modelo: Representado por las clases de dominio, las entidades.
+- Vistas: La representación del modelo.
+- Controlador: El nexo entre ambas.

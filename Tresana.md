@@ -8,48 +8,6 @@ Cada tarea se encuentra en un estado: Todo, In Progress, Freezer, Done.
 
 Las tareas pueden estar asignadas a más de un usuario, aunque solo uno es el responsable de que se cumpla. Se pueden realizar comentarios sobre las tareas en una conversación interna, para poder documentar las decisiones tomadas con respecto a cada una.
 
-#Usuario
-
-- IdUsuario
-- Nombre
-- Apellido
-- username
-- Mail
-
-#Equipo
-
-- IdEquipo
-- Nombre
-- Url
-- Miembros
-
-#Proyecto
-
-- IdProyecto 
-- Nombre
-- Fecha inicio
-- Fecha fin
-- Responsable
-- Miembros
-
-#Tarea
-
-- IdTarea
-- Nombre
-- Prioridad
-- Fecha comienzo
-- Fecha Fin
-- Estimación
-- Responsables
-- Estado
-- Creador
-- Fecha Creación
-- Fecha de vencimiento
-
-#Estados
-
-- IdEstados
-- Nombre
 
 ## Comienzo del desarrollo de Tresana
 
@@ -58,7 +16,7 @@ Desarrollaremos Tresana, un gestor de tareas para equipos.
 
 Para el desarrollo de hoy deberemos contar con las siguientes herramientas:
  - Visual Studio 2015 Enterprise
- - SQL Server 2012
+ - SQL Server 2012 Developer Edition
  - Cliente Postman
 
 ### Creando la estructura del proyecto
@@ -66,18 +24,16 @@ Para el desarrollo de hoy deberemos contar con las siguientes herramientas:
 Para el desarrollo de la aplicación, deberá crearse una solución Tresana en Visual Studio con los siguientes proyectos:
  - Tresana.Web.Api: ASP.NET Web Application, con el formato vacío, importando Web API únicamente (como se muestra en las imágenes debajo)
  - Tresana.Web.Api.Models: Class Library
- - Tresana.Data: Class Library
- - Tresana.DataAccess: Class Library
- - Tresana.Services: Class Library
- - Tresana.Repository: Class Library
+ - Tresana.Data.Entities: Class Library
+ - Tresana.Data.DataAccess: Class Library
 
 ![](lib/img/Tresana/WebApplication.png)
 ![](lib/img/Tresana/EmptyWebApi.png)
 
-Tresana.Data será el proyecto en el que colocaremos nuestras entidades. Tresana.DataAccess será el que contenga el contexto para EntityFramework. Tresana.Web.Api contendrá los servicios que expondremos a través de nuestra API REST, y Tresana.Web.Api.Models incluirá los modelos de las entidades. Esto último se debe a que no queremos acoplar nuestra api a nuestro modelo de dominio, por lo que generaremos lo que se conoce como DTO (DataTransferObjects). Estos objetos permitirán enviar únicamente los datos que deseo, además de moldearse mejor a las necesidades de la api rest, sin las restricciones de EntityFramework.
+Tresana.Data.Entities será el proyecto en el que colocaremos nuestras entidades. Tresana.Data.DataAccess será el que contenga el contexto para EntityFramework. Tresana.Web.Api contendrá los servicios que expondremos a través de nuestra API REST, y Tresana.Web.Api.Models incluirá los modelos de las entidades. Esto último se debe a que no queremos acoplar nuestra api a nuestro modelo de dominio, por lo que generaremos lo que se conoce como DTO (DataTransferObjects). Estos objetos permitirán enviar únicamente los datos que deseo, además de moldearse mejor a las necesidades de la api rest, sin las restricciones de EntityFramework.
 
 ### Agregando nuestro dominio
-En el proyecto Tresana.Data, cree las entidades reflejadas en el siguiente diagrama, dentro del namespace Tresana.Data.Entities
+En el proyecto Tresana.Data.Entities, cree las entidades reflejadas en el siguiente diagrama.
 
 ![](lib/img/Tresana/UMLClasses.png)
 
@@ -93,10 +49,9 @@ namespace Tresana.Data.DataAccess
     public class TresanaContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<Entities.Task> Tasks { get; set; }
+        public DbSet<Task> Tasks { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Status> Statuses { get; set; }
-        public DbSet<Priority> Priorities { get; set; }
         public DbSet<Team> Teams { get; set; }
     }
 }
@@ -106,24 +61,178 @@ namespace Tresana.Data.DataAccess
 
 ### Creando los Data Transfer Objects
 
-//TODO: Definición de DTO
+Los DTO (Data Transfer Object) son objetos que transportan información entre procesos, de manera de reducir el número de llamadas a métodos. (Fowler - Patterns of enterprise Application Architecture).
+En nuestra aplicación, nos permitirán controlar exactamente la información de nuestro dominio que exponemos, además de no acoplar nuestra API al modelo de dominio.
 
-//TODO: Ver bien qué poner en el DTO y que no
+En el proyecto Tresana.Web.Api.Models, por el momento replicaremos el modelo de dominio. En lugar de utilizar Key como identificador, utilizaremos Id. Este es un ejemplo de como podemos modificar el dominio. Más adelante encontraremos más ventajas de esta separación.
 
 ### Creando el primer Controller - Usuario
 
-//TODO: Explicacion de ApiController
-//TODO: Explicacion de ruteo automático
-//TODO: Explicación de IHttpActionResult
+Antes de crear el controlador, debemos diseñar la api que vamos a exponer. Dado que la clase que queremos exponer. En primer lugar debemos pensar las acciones que efectuaremos sobre los usuarios: 
+- Obtener una lista
+- Obtener uno en particular
+- Crear uno
+- Actualizar sus datos
+- Borrar un usuario
+
+|     URI     | Verbo | Descripción |
+|-------------|-------|-------------|
+|/api/users   | GET   |Obtener una lista de todos usuarios|
+|/api/users   | POST  |Crear un usuario|
+|/api/users/1 | GET   |Obtener los datos del usuario 1|
+|/api/users/1 | PUT   |Actualizar los datos del usuario 1|
+|/api/users/1 | DELETE|Eliminar el usuario 1|
+
+Teniendo entonces las uris definidas, debemos crear una clase que nos permita exponer estos métodos. Para ello, debemos crear un controlador. Un _controlador_ es un objeto que maneja los pedidos HTTP. 
+Para crear el primer controlodor, debemos seleccionar nuestro proyecto de Web API, y seleccionar con el botón derecho la carpeta Controllers. Allí seleccionamos la opción de Agregar Item > Controller. Esto abrirá el diálogo para la creación de un controller. Seleccionamos la opción de crear un controlador vacío y el nombre sera UsersController.
+
+Se creará la siguiente clase:
+
+```C#
+using System.Web.Http;
+
+namespace Tresana.Web.Api.Controllers
+{
+    public class UsersController : ApiController
+    {
+        
+    }
+}
+```
+
+En Web Api, los controladores heredan de una clase llamada ApiController. En MVC, heredan de la clase Controller.
+
+Los controladores en ASP.NET Web API retornan lo que se conoce como Action Results. 
+Una acción de un controlador puede retornar cualquiera de las siguientes opciones:
+1. ```void```
+2. ```HttpResponseMessage```
+3. ```IHttpActionResult```
+4. Cualquier otro tipo.
+
+Dependiendo el retorno, el framework utiliza un mecanismo diferente para crear la respuesta HTTP.
+
+| Tipo de retorno | Mecanismo de creación de la respuesta |
+|-----------------|---------------------------------------|
+| ```void``` | Retorna código 204 (Sin Contenido) |
+| ```HttpResponseMessage``` | Convierte directamente a un mensaje de respuesta HTTP |
+| ```IHttpActionResult``` | Llama a ```ExecuteAsync``` para crear la ```HttpResponseMessage```, y luego convertirlo en el mensaje de respuesta HTTP |
+| Cualquier otro tipo. | Escribe el valor de retorno serializado dentro de una respuesta 200 (OK) |
+
+
+En todos los casos, el framework utiliza formateadores para serializar el valor de retorno. Dependiendo del header Accept de la solicitud, será el formato en que retorne. (JSON, XML, etc.)
+
+Estudiaremos las opciones 2 y 3.
+
+####```HttpResponseMessage```
+Esta opción brinda mucho control sobre el mensaje de respuesta, permitiendo ingresar headers particulares, o modificar el formato del contenido.
+
+Por ejemplo, si queremos controlar el header de cache, para devolver los usuarios, el método sería:
+
+```C#
+
+public HttpResponseMessage Get()
+{
+
+    using(TresanaContext ctx = new TresanaContext()){
+        
+        IEnumerable<User> users = ctx.Users.ToList();
+        HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
+        response.Headers.CacheControl = new CacheControlHeaderValue()
+            {
+                MaxAge = TimeSpan.FromMinutes(20)
+            };
+    }
+    return response;
+}
+```
+
+####```IHttpActionResult```
+
+Con esta opción, obtenemos una mayor flexibilidad a la hora de realizar los mensajes de respuesta. En general usaremos las implementaciones de esta clase disponibles en [System.Web.Http.Results](https://msdn.microsoft.com/en-us/library/system.web.http.results.aspx). La clase ```ApiController``` define métodos uqe permiten retornar estos resultados. Para retornar algo similar a lo visto con ```HttpResponseMessage```, el código quedaría de la siguiente manera.
+
+```C#
+
+public IHttpActionResult Get()
+{
+
+    IEnumerable<User> users;
+    using(TresanaContext ctx = new TresanaContext())
+    {
+
+        users = ctx.Users.ToList();
+    }
+    
+    if(users == null)
+    {
+        return NotFound();
+    }
+    return Ok(users);
+}
+```
+
+En caso de desearlo, es posible implementar la interfaz para obtener mensajes de respuestas personalizados. En caso de desearlo, deberán investigar por su cuenta cómo realizarlo.
+
+###Ruteo por atributos
+
+_Routing_ es la manera en que Web API conecta una URI a una acción de un controlador. En Web API 2 se introduce lo que se conoce como _attribute routing_ que, como indica su nombre, utiliza los atributos para definir rutas. Esto brinda más control sobre las URIs. 
+En la primer versión del framework, se utilizaba lo que se conoce como _convention routing_. Para utilizarlo, se definían templates de rutas (strings parametrizados), y luego el framework emparejaba una uri con el tamplate para decidir qué acción ejecutar. Sin embargo, este tipo de routing dificultaba utilizar algunos patrones comunes en APIs REST, como objetos con relaciones. Ej: Las tareas de un usuario.
+
+Para activar _Attribute Routing_, hay que llamar a MapHttpAttributeRoutes durante la configuración de la aplicación. Para ello, modificamos el WebApiConfig, de la siguiente manera:
+
+```C#
+
+using System.Web.Http;
+
+namespace WebApplication
+{
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            // Web API routes
+            config.MapHttpAttributeRoutes();
+
+            // Other Web API configuration not shown.
+        }
+    }
+}
+
+```
+
+Podemos mantener las rutas por convención si así lo deseamos, quedando:
+
+```C#
+
+using System.Web.Http;
+
+namespace WebApplication
+{
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            // Web API routes
+            config.MapHttpAttributeRoutes();
+
+            // Convention-based routing.
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+        }
+    }
+}
+
+```
 
 ### Probando la aplicación con POSTMAN
 
+
 ### Moviendo la lógica a servicios
+Tener los métodos con lógica dentro de los controladores no parece la mejor opción. Además, nuestra api depende del paquete de Entities, algo que nos propusimos evitar desde el principio. Para lograrlo, crearemos dos nuevos proyectos Tresana.Web.Services y Tresana.Web.Mappers.
+En el proyecto de Services, incluiremos una referencia a Entities y a DataAccess, mientras que en el Mappers será a Entities y a Api.Models.
 
-### 
+####Ejercicio:
 
-##Preguntas para Fornaro:
-
-- Damos IoC? Ninject o Autofac
-- Patrón Repository? Para poder probar bien Base de datos.
-- AutoMapper para Dtos? O que lo hagan a mano para no complicarla con herramientas?
+Mueva la lógica de las acciones del controller de usuarios a un UserService y transfrome en las UserMapper la entidad al Dto.

@@ -10,7 +10,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+	<link rel="stylesheet" href="css/theme/league.css" id="theme">
 	<!-- Code syntax highlighting -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
 	<!-- Printing and PDF exports -->
@@ -33,12 +33,18 @@
 				<section>
 					<h1>Diseño de aplicaciones II</h1>
 					<p>Alejandro Tocar</p>
-					<a href="mailto:aletocar@gmail.com" target="_top"><img src="lib/img/Mail.png" style="width:40px; margin-right: 10px; border-style: none; background: none;" />
-						<p><small>aletocar@gmail.com</small></p>
-					</a>
-					<a href="https:	//github.com/aletocar" target="_blank"><img src="lib/img/github.png" style="width:40px; margin-right: 10px; border-style: none; background: none;" />
-						<p><small>aletocar</small></p>
-					</a>
+					<div style="display: inline-flex; margin-top: 50px;">
+						<div style="padding-right: 100px" ">
+							<a href="mailto:aletocar@gmail.com" target="_top"><img src="lib/img/Mail.png" style="width:40px; margin-right: 10px; border-style: none; background: none;" />
+								<p><small>aletocar@gmail.com</small></p>
+							</a>
+						</div>
+						<div>
+							<a href="https:	//github.com/aletocar" target="_blank"><img src="lib/img/github.png" style="width:40px; margin-right: 10px; border-style: none; background: none;" />
+								<p><small>aletocar</small></p>
+							</a>
+						</div>
+					</div>
 				</section>
 				<section id="fragments">
 					<h2>Temas</h2>
@@ -69,7 +75,7 @@
 					</section>
 					<section>
 						<h2>JavaScript y Mobile</h2>
-						<p>//TODO: Agregar imagen de un back end para javascript y que se sume un mobile</p>
+
 						<aside data-markdown class="notes">
 							Aunque durante la mayor parte de las últimas 3 décadas, los sitios web dependían de código del lado del servidor para cualquier cosa además de la manipulación de HTML, la llegada de JavaScript y Ajax han generado algunos cambios. Estas últimas generaron la necesidad de servicios que sean menos acerca de aplicaciones complejas comunicándose entre si y más acerca de páginas web necesitando obtener y enviar pequeñas cantidades de datos. Un ejemplo de este tipo de aplicaciones son las SPA (Single Page Applicactions). Podemos considerarlas como clientes "gordas" que corren en los navegadores web, con JavaScript conectando desde el navegador al *back-end*. Ya que los sitios web son aplicaciones HTTP, comunicarse utilizando este protocolo es un hecho. Además, el uso del navegador web permite requerimientos de seguridad más simples. Lo que es más, las páginas web típicamente se comunican utilizando mensajes basados en texto, en lugar de mensajes binarios. JSON o XML serán más que suficientes para ellas. Por otro lado, las aplicaciones móviles también se comportan de manera similar a las aplicaciones web. Se comunican a través de HTTP, envían y reciben pequeñas cantidades de datos basados en texto, y sus modelos de seguridad se mantienen minimalistas para favorecer la experiencia de usuario. Tomando todo esto en cuenta, aparece entonces una creciente demanda para un framework de servicios que provea exactamente lo necesario para estos simples servicios HTTP. Si bien WCF puede lograr todo esto, definitivamente no está configurado de esta manera por defecto, y su flexibilidad genera que sea demasiado fácil errarle en alguna parte. Es aquí que entra Web API
 						</aside>
