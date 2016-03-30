@@ -264,6 +264,8 @@ Para poder restringir lo que se pasa en los parámetros, se usan las **restricci
 
 ```
 
+Cree la funcionalidad necesaria para soportar métodos especificados.
+
 ### Probando la aplicación con POSTMAN
 
 Acceder a [postman](https://www.getpostman.com/) y probar las funcionalidades creadas.
