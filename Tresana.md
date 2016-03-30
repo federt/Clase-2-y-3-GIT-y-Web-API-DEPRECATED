@@ -226,8 +226,47 @@ namespace WebApplication
 
 ```
 
+#### Agregando atributos de routa
+
+Veamos un ejemplo de una ruta definida usando un atributo
+
+
+```C#
+
+public class UsersController : ApiController
+{
+
+    [Route("users/{userId}")]
+    [HttpGet]
+    public User FindUserById(long userId)
+    {
+        //Código para obtener el usuario.
+    }
+}
+
+```
+
+El string definido luego de la etiqueta Route es el template de URI para la ruta. 
+Al recibir un request, Web API intenta igualar la URI entrante con el template. En este caso, "users" es un segmento literal, y "{userId}" es un parámetro variable.
+
+Para poder restringir lo que se pasa en los parámetros, se usan las **restricciones**, las cuales veremos más adelante.
+
+#### Métodos HTTP disponibles
+
+```C#
+[HttpDelete]
+[HttpGet]
+[HttpHead]
+[HttpOptions]
+[HttpPatch]
+[HttpPost]
+[HttpPut]
+
+```
+
 ### Probando la aplicación con POSTMAN
 
+Acceder a [postman](https://www.getpostman.com/) y probar las funcionalidades creadas.
 
 ### Moviendo la lógica a servicios
 Tener los métodos con lógica dentro de los controladores no parece la mejor opción. Además, nuestra api depende del paquete de Entities, algo que nos propusimos evitar desde el principio. Para lograrlo, crearemos dos nuevos proyectos Tresana.Web.Services y Tresana.Web.Mappers.
