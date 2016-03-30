@@ -51,7 +51,7 @@ namespace Tresana.Data.DataAccess
         public DbSet<User> Users { get; set; }
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Project> Projects { get; set; }
-        public DbSet<Status> Statuses { get; set; }
+        public DbSet<State> States { get; set; }
         public DbSet<Team> Teams { get; set; }
     }
 }
@@ -263,6 +263,8 @@ Para poder restringir lo que se pasa en los parámetros, se usan las **restricci
 [HttpPut]
 
 ```
+
+Cree la funcionalidad necesaria para soportar métodos especificados.
 
 ### Probando la aplicación con POSTMAN
 
