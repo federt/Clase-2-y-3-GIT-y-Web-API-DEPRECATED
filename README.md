@@ -1,6 +1,6 @@
 # Clase 3 DA2 Práctico
-[Ver presentación de la clase](http://disaplicaciones2ort0316.github.io/Clase3/#/)
-[Descargar el pdf] (https://github.com/DisAplicaciones2ORT0316/Clase3/blob/master/Clase3.pdf)
+[Ver presentación de la clase](http://ORT-DA2.github.io/Clase3/#/)
+[Descargar el pdf] (https://github.com/ORT-DA2/Clase3/blob/master/Clase3.pdf)
 ## Temas
 
 <!-- MarkdownTOC -->
@@ -180,3 +180,8 @@ Este es un patrón que permite la separación de responsabilidades entre los ele
 - Modelo: Representado por las clases de dominio, las entidades.
 - Vistas: La representación del modelo.
 - Controlador: El nexo entre ambas.
+
+## Ejercicio:
+
+A continuación comenzaremos a desarrollar la primera aplicación, aprendiendo más sobre el framework sobre la marcha.
+Pueden encontrar el ejercicio y las instrucciones [aquí](https://github.com/ORT-DA2/Clase3/blob/master/Tresana.md)
