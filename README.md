@@ -118,7 +118,9 @@ Para crear una rama y moverme a ella:
 ```git branch nuevaRama```
 ```git checkout nuevaRama```
 
-Estos dos comandos anteriores puede ser resumidos usando ```git checkout -b nuevaRama```. Ver en sección de git checkout.
+Estos dos comandos anteriores puede ser resumidos usando simplemente ```git checkout -b nuevaRama```.  
+
+Esto se verá en la siguiente sección (git checkout).
 
 ####```git checkout```
 Para cambiar el branch en la que se está trabajando, se utiliza el comando ```git checkout```.
@@ -158,15 +160,15 @@ please contact us at support@github.com
 
 ![](lib/img/git vim 2.png)
 
-Para guardar en vim deberíamos estar en el modo de comandos, lo hacemos apretando ```Esc``` 
+Para guardar en vim deberíamos estar en el modo de comandos, esto lo hacemos apretando ```Esc``` 
 
-Una vez agregado nuestro mensaje al commit, podemos usar ```w``` para guardar y ```q``` para salir, pero primero debemos escribir ```:```. Por ende la sentencia entera sería:
+Una vez agregado nuestro mensaje al commit, podemos usar ```w``` (write) para guardar y ```q``` (quit) para salir, pero en Vim primero debemos escribir ```:```. Por ende la sentencia entera sería:
 
-```:wq```  (lo cual equivale a  hacer un write + quit)
+```:wq```  (lo cual equivale a  hacer un write + quit por separado)
 
-También es lo mismo poner: ```:x```
+También, es lo mismo poner: ```:x``` (es una forma resumida para lo anterior)
 
-Si quisieramos elegir otro editor, como por ejemplo nano:
+Si quisieramos elegir otro editor en lugar de Vim, como por ejemplo nano:
 
 ```git config core.editor "nano"```
 
