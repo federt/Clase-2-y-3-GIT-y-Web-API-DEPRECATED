@@ -1,6 +1,7 @@
 # Clase 2 DA2 Práctico: Repaso Git + Introducción a Web API 2
 [Ver presentación de la clase CAMBIAR](http://ORT-DA2.github.io/Clase3/#/)  
 [Descargar el pdf CAMBIAR] (https://github.com/ORT-DA2/Clase3/blob/master/Clase3.pdf)
+
 ## Temas
 
 <!-- MarkdownTOC -->
@@ -13,7 +14,7 @@
 
 <!-- /MarkdownTOC -->
 
-#Repaso de Git por consola
+##Repaso de Git por consola
 
 ###Comandos básicos
 
@@ -31,7 +32,7 @@ git pull
 git push
 ```
 
-##¿Cómo puedo saber cuál es el comportamiento de cada comando, su uso y sus configuraciones adicionales?
+###¿Cómo puedo saber cuál es el comportamiento de cada comando, su uso y sus configuraciones adicionales?
 
 La página por excelencia para leer sobre Git es: [git-scm](https://git-scm.com/docs)
 
@@ -49,7 +50,6 @@ En caso de querer obtener un repositorio existente, se debe utilizar el siguient
 ```bash
 git clone https://github.com/DisAplicaciones2ORT0316/Clase2.git
 ```
-
 Al compararlo con otros sistemas de control de versiones, como Subversion, se puede apreciar la diferencia entre ```clone``` y ```checkout```. Esta diferencia es importante, ya que ```git clone``` trae una copia completa de casi toda la información almacenada en el repositorio. Esto quiere decir que, si el disco duro del servidor de repositorios se corrompe, cualquiera de los clones puede ser usado como respaldo para restaurarlo.
 
 Este comando crea un directorio con el nomrbe del repositorio, y dentro de él coloca todos los archivos del mismo. En caso de querer personalizar el directorio que se va a crear, se agrega luego de la url del repositorio.
