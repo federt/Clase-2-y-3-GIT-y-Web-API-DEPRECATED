@@ -73,7 +73,7 @@ Los cambios solo se enviarán al repositorio si están en el área *staged*. Par
 ####```git status```
 Una vez que se comienza a trabajar con archivos, es común la necesidad de revisar el estado de los mismos. Para ello se debe utilizar el comando ```git status```.
 
-![](lib/img/gitstatus.png)
+![](lib/img/git-status.gif)
 
 A partir de este comando, se describen los archivos que se encuentran staged, modified y los que no se siguen aún. De esta manera es posible determinar que archivos serán incluídos en el próximo commit, y cuáles no.
 
