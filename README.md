@@ -24,6 +24,7 @@ git clone
 git add
 git status
 git commit
+git branch
 git checkout
 git merge
 git remote
@@ -82,9 +83,7 @@ Para enviar los cambios al repositorio, se utiliza el comando ```git commit```. 
 
 ![](lib/img/gitphases.png)
 
-En caso de ejecutar el comando únicamente con ```git commit``` se abrirá el editor por defecto configurado en el ambiente. En este caso es Vim.
-
-![](lib/img/gitvim.png)
+En caso de ejecutar el comando únicamente con ```git commit``` se abrirá el editor por defecto configurado en el ambiente. En este caso es Vim. (VER: Guardando resultado de merging con Vim, más abajo).
 
 Para poder escribir el mensaje directamente al hacer el commit, utilizamos la opción ```-m```
 
@@ -98,10 +97,32 @@ Es posible también unir el ```git add``` y el ```git commit``` en una sola sent
 
 Git permite utilizar diferentes branches para mantener distintas versiones del código en paralelo. El estándar que se utiliza en el curso es [gitflow](http://nvie.com/posts/a-successful-git-branching-model/).
 
+####```git branch```
+
+Permite listar, crear, o eliminar ramas.
+
+Si usamos simplemente ```git branch``` o ```git branch --list``` se listan las ramas existentes, marcando la rama actual con un asterisco.
+
+![](lib/img/git branch.png)
+
+También podemos crear una nueva rama:
+
+```git branch nuevaRama```
+
+O eliminarla:
+
+```git branch -d nuevaRama```
+
+Para crear una rama y moverme a ella:
+
+```git branch nuevaRama```
+```git checkout nuevaRama```
+
+Estos dos comandos anteriores puede ser resumidos usando ```git checkout -b nuevaRama```. Ver en sección de git checkout.
+
 ####```git checkout```
 Para cambiar el branch en la que se está trabajando, se utiliza el comando ```git checkout```.
 Si se está trabajando en ```develop``` y se desea pasar a utilizar ```master```, se realiza el siguiente comando ```git checkout master```. 
-
 
 Para crear una nueva branch, es necesario ubicarse en la branch padre, y realizar ```git checkout -b```. La opción ```-b``` permite crear una branch que se abre de la rama padre. Siguiendo ```gitflow```, si se desea crear una nueva feature, se utilizaría el siguiente comando.
 
@@ -119,7 +140,6 @@ Supongamos que se termina de trabajar en la branch feature/newfeature y se desea
 git checkout develop
 git merge feature/newfeature
 ```
-
 Una vez realizado el merge, git intenta enviar los cambios al repositorio. En caso que existan conflictos, este proceso falla y se deben resolver. Los archivos en los que haya conflictos se detallarán en el mensaje luego del merge, y se deberán resolver uno a uno. Si se abre uno de los archivos en conflicto, por ejemplo un html, se puede encontrar algo similar a lo siguiente.
 
 ```html
@@ -133,6 +153,22 @@ please contact us at support@github.com
 >>>>>>> feature/newfeature:index.html
 
 ```
+
+#### Guardando resultado de merging con Vim
+
+![](lib/img/git vim 2.png)
+
+Para guardar en vim deberíamos estar en el modo de comandos, lo hacemos apretando ```Esc``` 
+
+Una vez agregado nuestro mensaje al commit, podemos usar ```w``` para guardar y ```q``` para salir, pero primero debemos escribir ```:```. Por ende la sentencia entera sería:
+
+```:wq```  (lo cual equivale a  hacer un write + quit)
+
+También es lo mismo poner: ```:x```
+
+Si quisieramos elegir otro editor, como por ejemplo nano:
+
+```git config core.editor "nano"```
 
 ####```git remote```
 Este comando permite gestionar los repositorios remotos. En caso de que hayamos inicializado el repositorio con ```git init``` también podemos usarlo para agregar un servidor de repositorio.
