@@ -64,7 +64,7 @@ Los protocolos de transferencia de git pueden ser https, como el anterior, o con
 
 Luego de iniciado el repositorio, todos los archivos quedan en estado *Untracked*. Esto quiere decir que git no seguirá los cambios que se le realicen al archivo. A partir de ahora, comienza el siguiente ciclo:
 
-![](lib/img/ciclogit.png)
+![](lib/img/file-status-lifecycle.png)
 
 ####```git add```
 
@@ -79,6 +79,8 @@ A partir de este comando, se describen los archivos que se encuentran staged, mo
 
 ####```git commit```
 Para enviar los cambios al repositorio, se utiliza el comando ```git commit```. Este comando toma todos los archivos que se encuentran en estado *staged*, y agrega un nuevo snapshot de sus cambios en el repositorio local. Vale recordar que en git, a diferencia de repositorios centralizados, los repositorios son locales y se sincronizan con un repositorio remoto.
+
+![](lib/img/gitphases.png)
 
 En caso de ejecutar el comando únicamente con ```git commit``` se abrirá el editor por defecto configurado en el ambiente. En este caso es Vim.
 
