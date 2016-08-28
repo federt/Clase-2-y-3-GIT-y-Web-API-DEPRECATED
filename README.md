@@ -115,7 +115,7 @@ O eliminarla:
 
 Para crear una rama y moverme a ella:
 
-```git branch nuevaRama```
+```git branch nuevaRama```  
 ```git checkout nuevaRama```
 
 Estos dos comandos anteriores puede ser resumidos usando simplemente ```git checkout -b nuevaRama```.  
