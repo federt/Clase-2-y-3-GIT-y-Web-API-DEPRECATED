@@ -1,5 +1,5 @@
 # Clase 2 DA2 Práctico: Repaso Git + Introducción a Web API 2
-[Ver presentación de la clase CAMBIAR](http://ORT-DA2.github.io/Clase-2/#/)  
+[Ver presentación de la clase](http://ORT-DA2.github.io/Clase-2/#/)  
 [Descargar el pdf CAMBIAR] (https://github.com/ORT-DA2/Clase3/blob/master/Clase-2.pdf)
 
 ## Temas
