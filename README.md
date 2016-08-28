@@ -1,6 +1,6 @@
 # Clase 2 DA2 Práctico: Repaso Git + Introducción a Web API 2
-[Ver presentación de la clase CAMBIAR](http://ORT-DA2.github.io/Clase3/#/)  
-[Descargar el pdf CAMBIAR] (https://github.com/ORT-DA2/Clase3/blob/master/Clase3.pdf)
+[Ver presentación de la clase CAMBIAR](http://ORT-DA2.github.io/Clase-2/#/)  
+[Descargar el pdf CAMBIAR] (https://github.com/ORT-DA2/Clase3/blob/master/Clase-2.pdf)
 
 ## Temas
 
@@ -369,4 +369,4 @@ Este es un patrón que permite la separación de responsabilidades entre los ele
 ## Ejercicio:
 
 A continuación comenzaremos a desarrollar la primera aplicación, aprendiendo más sobre el framework sobre la marcha.
-Pueden encontrar el ejercicio y las instrucciones [aquí](https://github.com/ORT-DA2/Clase2/blob/master/Tresana.md)
+Pueden encontrar el ejercicio y las instrucciones [aquí](https://github.com/ORT-DA2/Clase-2/blob/master/Tresana.md)
