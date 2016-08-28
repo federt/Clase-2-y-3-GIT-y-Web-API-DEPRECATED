@@ -369,4 +369,4 @@ Este es un patrón que permite la separación de responsabilidades entre los ele
 ## Ejercicio:
 
 A continuación comenzaremos a desarrollar la primera aplicación, aprendiendo más sobre el framework sobre la marcha.
-Pueden encontrar el ejercicio y las instrucciones [aquí](https://github.com/ORT-DA2/Clase3/blob/master/Tresana.md)
+Pueden encontrar el ejercicio y las instrucciones [aquí](https://github.com/ORT-DA2/Clase2/blob/master/Tresana.md)
