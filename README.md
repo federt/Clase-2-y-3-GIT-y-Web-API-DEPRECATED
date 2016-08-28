@@ -31,6 +31,10 @@ git pull
 git push
 ```
 
+##¿Cómo puedo saber cuál es el comportamiento de cada comando, su uso y sus configuraciones adicionales?
+
+La página por excelencia para leer sobre Git es: [git-scm](https://git-scm.com/docs)
+
 ###Iniciando el repositorio
 Hay dos maneras de utilizar Git en tus proyectos.
 
