@@ -6,15 +6,16 @@
 
 <!-- MarkdownTOC -->
 
-- Repaso de Git por Consola
+- Repaso de Git por consola
 - Introducción a ASP.NET Web API 2
-- Ventajas de ASP.NET Web API
-- Características de ASP.NET Web API
-- Introducción a REST
+	- Ventajas de ASP.NET Web API
+	- Características de ASP.NET Web API
+	- Introducción a REST
+	- Ejercicio:
 
 <!-- /MarkdownTOC -->
 
-##Repaso de Git por consola
+#Repaso de Git por consola
 
 ###Comandos básicos
 

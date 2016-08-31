@@ -59,13 +59,6 @@ namespace Tresana.Data.DataAccess
 
 ![](lib/img/Tresana/EntitiesProjectReference.png)
 
-### Creando los Data Transfer Objects
-
-Los DTO (Data Transfer Object) son objetos que transportan información entre procesos, de manera de reducir el número de llamadas a métodos. (Fowler - Patterns of enterprise Application Architecture).
-En nuestra aplicación, nos permitirán controlar exactamente la información de nuestro dominio que exponemos, además de no acoplar nuestra API al modelo de dominio.
-
-En el proyecto Tresana.Web.Api.Models, por el momento replicaremos el modelo de dominio. En lugar de utilizar Key como identificador, utilizaremos Id. Este es un ejemplo de como podemos modificar el dominio. Más adelante encontraremos más ventajas de esta separación.
-
 ### Creando el primer Controller - Usuario
 
 Antes de crear el controlador, debemos diseñar la api que vamos a exponer. Dado que la clase que queremos exponer. En primer lugar debemos pensar las acciones que efectuaremos sobre los usuarios: 
@@ -226,7 +219,7 @@ namespace WebApplication
 
 ```
 
-#### Agregando atributos de routa
+#### Agregando atributos de ruta
 
 Veamos un ejemplo de una ruta definida usando un atributo
 
@@ -271,9 +264,9 @@ Cree la funcionalidad necesaria para soportar métodos especificados.
 Acceder a [postman](https://www.getpostman.com/) y probar las funcionalidades creadas.
 
 ### Moviendo la lógica a servicios
-Tener los métodos con lógica dentro de los controladores no parece la mejor opción. Además, nuestra api depende del paquete de Entities, algo que nos propusimos evitar desde el principio. Para lograrlo, crearemos dos nuevos proyectos Tresana.Web.Services y Tresana.Web.Mappers.
-En el proyecto de Services, incluiremos una referencia a Entities y a DataAccess, mientras que en el Mappers será a Entities y a Api.Models.
+Tener los métodos con lógica dentro de los controladores no parece la mejor opción. Además, nuestra api depende del paquete de Entities, algo que nos propusimos evitar desde el principio. Para lograrlo, crearemos un nuevo proyecto: Tresana.Web.Services.
+En el proyecto de Services, incluiremos una referencia a Entities y a DataAccess, y serán los encargados de manejar la lógica de negocio de nuestra aplicación.
 
 ####Ejercicio:
 
-Mueva la lógica de las acciones del controller de usuarios a un UserService y transfrome en las UserMapper la entidad al Dto.
+Mueva la lógica de las acciones del controller de usuarios a un UserService.
