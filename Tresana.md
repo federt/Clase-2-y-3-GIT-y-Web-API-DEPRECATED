@@ -61,7 +61,7 @@ namespace Tresana.Data.DataAccess
 
 ### Creando el primer Controller - Usuario
 
-Antes de crear el controlador, debemos diseñar la api que vamos a exponer. Dado que la clase que queremos exponer. En primer lugar debemos pensar las acciones que efectuaremos sobre los usuarios: 
+Antes de crear el controlador, debemos diseñar la api que vamos a exponer, dada la clase que queremos exponer. En primer lugar debemos pensar las acciones que efectuaremos sobre los usuarios: 
 - Obtener una lista
 - Obtener uno en particular
 - Crear uno
