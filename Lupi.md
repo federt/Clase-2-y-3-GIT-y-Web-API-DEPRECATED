@@ -1,15 +1,14 @@
-#Tresana
+# LUPI
 
-Tresana es una herramienta que permite a un equipo gestionar sus tareas siguiendo la metodología Scrum.
+LUPI se basa en un pequeño dispositivo que se coloca sobre nuestras mascotas (por ejemplo sobre su collar), permitiendo tener una enormidad de datos en tiempo real sobre los mismos. Este funciona a partir de tecnología inteligente para tener un seguimiento de la ubicación y actividad de nuestras mascotas.
 
-Cada tarea pertenece a un proyecto, y puede tener una lista de subtareas. Además, se le pueden agregar etiquetas que permitan facilicitar su organización.
+Tiene dos partes fundamentales: el dispositivo que se coloca sobre la mascota y la app mobile desde la cual se tiene el manejo y seguimiento de los datos enviados. En un futuro también se desea poder contar con una web para que los usuarios también puedan usar el sisema.
 
-Cada tarea se encuentra en un estado: Todo, In Progress, Freezer, Done.
-
-Las tareas pueden estar asignadas a más de un usuario, aunque solo uno es el responsable de que se cumpla. Se pueden realizar comentarios sobre las tareas en una conversación interna, para poder documentar las decisiones tomadas con respecto a cada una.
+Los usuarios bajan la app, se conectan al wifi, y establecen una conexión con el dispositivo sobre el collar. Para cada mascota a su vez se pueden crear perfiles, donde para cada uno recibiremos datos como temperatura,  si está agitado o descansando, su ubicación (para estar seguros de que se encuentre en donde queremos), e incluso su “visión” a partir de la implementación de una cámara en el disposiitivo. Con estos datos se podrían generar estadísticas y reportes que hablen de nuestra mascota. Además, el equipo pensó en la posibilidad de aumentar la interacción con la mascota a través de mensajes de voz o instrucciones que pueden ser mandadas desde la aplicación del dueño y reproducidas en altavoz del dispositivo.
 
 
-## Comienzo del desarrollo de Tresana
+
+## Comienzo del desarrollo de LUPI
 
 A lo largo del curso, utilizaremos el desarrollo de un producto como ejemplo para navegar entre las tecnologías correspondientes.
 Desarrollaremos Tresana, un gestor de tareas para equipos.
