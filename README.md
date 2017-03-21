@@ -11,7 +11,7 @@
 	- Ventajas de ASP.NET Web API
 	- Características de ASP.NET Web API
 	- Introducción a REST
-	- Ejercicio:
+	- Ejercicio Inicial en Web API 2
 
 <!-- /MarkdownTOC -->
 
