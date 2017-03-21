@@ -1,6 +1,6 @@
-# Clase 2 DA2 Práctico: Repaso Git + Introducción a Web API 2
+# Clase 2: Repaso Git + Introducción a Web API 2
 [Ver presentación de la clase](http://ORT-DA2.github.io/Clase-2/#/)  
-[Descargar el pdf] (https://github.com/ORT-DA2/Clase-2/blob/master/README.pdf)
+[Descargar el pdf](https://github.com/ORT-DA2/Clase-2/blob/master/README.pdf)
 
 ## Temas
 
@@ -15,9 +15,9 @@
 
 <!-- /MarkdownTOC -->
 
-#Repaso de Git por consola
+# Repaso de Git por consola
 
-###Comandos básicos
+### Comandos básicos
 
 ```bash
 git init
@@ -34,19 +34,19 @@ git pull
 git push
 ```
 
-###¿Cómo puedo saber cuál es el comportamiento de cada comando, su uso y sus configuraciones adicionales?
+### ¿Cómo puedo saber cuál es el comportamiento de cada comando, su uso y sus configuraciones adicionales?
 
 La página por excelencia para leer sobre Git es: [git-scm](https://git-scm.com/docs)
 
 ###Iniciando el repositorio
 Hay dos maneras de utilizar Git en tus proyectos.
 
-####```git init```
+#### ```git init```
 
 Esto permite seguir un proyecto existente en Git. Para ello, se debe acceder a la carpeta del proyecto, y correr el comando ```git init```.
 Al ejecutar el comando, se crea un subdirectorio ```.git```, el que contendrá todos los archivos necesarios para mantener el repositorio. Luego de ejecutado este comando, ninguno de los archivos del proyecto se encuentran mantenidos por el repositorio.
 
-####```git clone```
+#### ```git clone```
 
 En caso de querer obtener un repositorio existente, se debe utilizar el siguiente comando.
 ```bash
@@ -62,24 +62,24 @@ git clone https://github.com/DisAplicaciones2ORT0316/Clase2.git MiClase2
 
 Los protocolos de transferencia de git pueden ser https, como el anterior, o con ssh, dependiendo de la preferencia del usuario.
 
-###Guardando cambios en el repositorio
+### Guardando cambios en el repositorio
 
 Luego de iniciado el repositorio, todos los archivos quedan en estado *Untracked*. Esto quiere decir que git no seguirá los cambios que se le realicen al archivo. A partir de ahora, comienza el siguiente ciclo:
 
 ![](lib/img/file-status-lifecycle.png)
 
-####```git add```
+#### ```git add```
 
 Los cambios solo se enviarán al repositorio si están en el área *staged*. Para agregar los archivos, se debe ejecutar ```git add README.md```. De esta manera, ese archivo pasa del estado *untracked* al estado *staged*. Para agregar todos los archivos de nuestra ubicación, se puede utilizar ```git add . ```. 
 
-####```git status```
+#### ```git status```
 Una vez que se comienza a trabajar con archivos, es común la necesidad de revisar el estado de los mismos. Para ello se debe utilizar el comando ```git status```.
 
 ![](lib/img/git-status.gif)
 
 A partir de este comando, se describen los archivos que se encuentran staged, modified y los que no se siguen aún. De esta manera es posible determinar que archivos serán incluídos en el próximo commit, y cuáles no.
 
-####```git commit```
+#### ```git commit```
 Para enviar los cambios al repositorio, se utiliza el comando ```git commit```. Este comando toma todos los archivos que se encuentran en estado *staged*, y agrega un nuevo snapshot de sus cambios en el repositorio local. Vale recordar que en git, a diferencia de repositorios centralizados, los repositorios son locales y se sincronizan con un repositorio remoto.
 
 ![](lib/img/gitphases.png)
@@ -123,7 +123,7 @@ Estos dos comandos anteriores puede ser resumidos usando simplemente ```git chec
 
 Esto se verá en la siguiente sección (git checkout).
 
-####```git checkout```
+#### ```git checkout```
 Para cambiar el branch en la que se está trabajando, se utiliza el comando ```git checkout```.
 Si se está trabajando en ```develop``` y se desea pasar a utilizar ```master```, se realiza el siguiente comando ```git checkout master```. 
 
@@ -134,7 +134,7 @@ git checkout develop #Selecciono la branch develop
 git checkout -b feature/newfeature #Creo una nueva feature
 ```
 
-####```git merge``` 
+#### ```git merge``` 
 
 Una vez terminada una feature, se debe unir el contenido en dicha rama con el que se encuentra en develop. Para ello se utiliza ```git merge```.
 Supongamos que se termina de trabajar en la branch feature/newfeature y se desea unirla a develop. Luego de enviar todos los cambios al repositorio (commit), se debe ejecutar lo siguiente:
@@ -178,7 +178,7 @@ Este comando permite gestionar los repositorios remotos. En caso de que hayamos 
 
 ```git remote add origin https://github.com/DisAplicaciones2ORT0316/Clase2.git```
 
-####```git fetch```
+#### ```git fetch```
 En caso de tener branches remotas, este comando permite traer toda la información de un repositorio remoto que no se tenga en el repositorio local. Por ejemplo: Si un compañero realiza un cambio en su repositorio local, y envía estos datos al repositorio remoto, el otro compañero puede utilizar este comando para visualizar los cambios, sin necesidad de sumarlos a su branch local.
 
 Se utiliza de la siguiente manera.
@@ -189,7 +189,7 @@ También se puede hacer con una única rama.
 
 ```git fetch origin develop```
 
-####```git pull```
+#### ```git pull```
 
 En caso de setear un branch local para que siga a una branch remota, utilizar este comando permite hacer un ```fetch``` y luego un ```merge``` de la rama remota con la rama local.
 
