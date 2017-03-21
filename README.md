@@ -38,7 +38,7 @@ git push
 
 La página por excelencia para leer sobre Git es: [git-scm](https://git-scm.com/docs)
 
-###Iniciando el repositorio
+### Iniciando el repositorio
 Hay dos maneras de utilizar Git en tus proyectos.
 
 #### ```git init```
