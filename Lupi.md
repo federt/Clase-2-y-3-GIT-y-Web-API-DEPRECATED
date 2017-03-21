@@ -23,7 +23,7 @@ Para el desarrollo de hoy deberemos contar con las siguientes herramientas:
 ### Creando la estructura del proyecto
 
 Para el desarrollo de la aplicación, deberá crearse una solución Lupu en Visual Studio con los siguientes proyectos:
- - Tresana.Web.Api: ASP.NET Web Application, con el formato vacío, importando Web API únicamente (como se muestra en las imágenes debajo)
+ - Lupi.Web.Api: ASP.NET Web Application, con el formato vacío, importando Web API únicamente (como se muestra en las imágenes debajo)
  - Lupi.Web.Api.Models: Class Library
  - Lupi.Data.Entities: Class Library
  - Lupi.Data.DataAccess: Class Library
@@ -34,7 +34,11 @@ Para el desarrollo de la aplicación, deberá crearse una solución Lupu en Visu
 Lupi.Data.Entities será el proyecto en el que colocaremos nuestras entidades. Lupi.Data.DataAccess será el que contenga el contexto para EntityFramework y maneje la lógica del acceso a datos. Lupi.Web.Api contendrá los servicios que expondremos a través de nuestra API REST, y Lupi.Web.Api.Models incluirá los modelos de las entidades. Esto último se debe a que no queremos acoplar nuestra api a nuestro modelo de dominio, por lo que generaremos lo que se conoce como DTO (DataTransferObjects). Estos objetos permitirán enviar únicamente los datos que deseo, además de moldearse mejor a las necesidades de la API REST, sin las restricciones de EntityFramework.
 
 ### Agregando nuestro dominio
-En el proyecto Tresana.Data.Entities, cree las entidades reflejadas en el siguiente diagrama.
+En el proyecto Lupi.Data.Entities, cree las entidades reflejadas en el siguiente diagrama.
+
+Para entender un poco más el problema se comenzó analizando los diferentes participantes del mismo. La idea se basa en que los usuarios puedan tener control sobre sus perros (dónde se encuentra, si está fatigado, etc.), por lo que los dos participantes más “importantes” son los perros y dueños. Toda la información que el dueño quiere obtener de su perro debe ser obtenida y enviada hasta él por lo que se necesita un intermediario. Éste último es el collar, ya que se encarga de tomar todos los datos.
+
+La realidad es que un dueño puede tener varios perros y la aplicación debe permitirlo, de la misma forma asumimos que los perros tienen un único dueño. Entonces, un dueño puede poseer varios collares, donde a cada uno de éstos puede estar asignado como mucho a un perro. Para permitir el intercambio de collares entre perros, en caso de que el dueño tenga más perros que collares, un perro puede no tener asignado un collar así como un collar puede no tener ningún perro.
 
 ![](lib/img/Tresana/UMLClasses.png)
 
