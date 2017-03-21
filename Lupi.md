@@ -1,35 +1,37 @@
 # LUPI
 
-LUPI se basa en un pequeño dispositivo que se coloca sobre nuestras mascotas (por ejemplo sobre su collar), permitiendo tener una enormidad de datos en tiempo real sobre los mismos. Este funciona a partir de tecnología inteligente para tener un seguimiento de la ubicación y actividad de nuestras mascotas.
+LUPI se basa en un pequeño dispositivo que se coloca sobre nuestras mascotas (por ejemplo sobre su collar), permitiendo tener una enormidad de datos en tiempo real sobre los mismos. Este funciona a partir de tecnología inteligente para tener un seguimiento de la ubicación y actividad de las mismas.
 
 Tiene dos partes fundamentales: el dispositivo que se coloca sobre la mascota y la app mobile desde la cual se tiene el manejo y seguimiento de los datos enviados. En un futuro también se desea poder contar con una web para que los usuarios también puedan usar el sisema.
 
 Los usuarios bajan la app, se conectan al wifi, y establecen una conexión con el dispositivo sobre el collar. Para cada mascota a su vez se pueden crear perfiles, donde para cada uno recibiremos datos como temperatura,  si está agitado o descansando, su ubicación (para estar seguros de que se encuentre en donde queremos), e incluso su “visión” a partir de la implementación de una cámara en el disposiitivo. Con estos datos se podrían generar estadísticas y reportes que hablen de nuestra mascota. Además, el equipo pensó en la posibilidad de aumentar la interacción con la mascota a través de mensajes de voz o instrucciones que pueden ser mandadas desde la aplicación del dueño y reproducidas en altavoz del dispositivo.
 
+Algunas posibles vistas de la aplicación son las siguientes:
 
+IMAGEN 1
 
 ## Comienzo del desarrollo de LUPI
 
-A lo largo del curso, utilizaremos el desarrollo de un producto como ejemplo para navegar entre las tecnologías correspondientes.
-Desarrollaremos Tresana, un gestor de tareas para equipos.
+A lo largo del curso, utilizaremos el desarrollo de este producto (LUPI) o como ejemplo para navegar entre las tecnologías correspondientes. Como ya dijimos, desarrollaremos LUPI, un tracker de la actividad de nuestras mascotas.
 
 Para el desarrollo de hoy deberemos contar con las siguientes herramientas:
+
  - Visual Studio 2015 Enterprise
  - SQL Server 2012 Developer Edition
  - Cliente Postman
 
 ### Creando la estructura del proyecto
 
-Para el desarrollo de la aplicación, deberá crearse una solución Tresana en Visual Studio con los siguientes proyectos:
+Para el desarrollo de la aplicación, deberá crearse una solución Lupu en Visual Studio con los siguientes proyectos:
  - Tresana.Web.Api: ASP.NET Web Application, con el formato vacío, importando Web API únicamente (como se muestra en las imágenes debajo)
- - Tresana.Web.Api.Models: Class Library
- - Tresana.Data.Entities: Class Library
- - Tresana.Data.DataAccess: Class Library
+ - Lupi.Web.Api.Models: Class Library
+ - Lupi.Data.Entities: Class Library
+ - Lupi.Data.DataAccess: Class Library
 
 ![](lib/img/Tresana/WebApplication.png)
 ![](lib/img/Tresana/EmptyWebApi.png)
 
-Tresana.Data.Entities será el proyecto en el que colocaremos nuestras entidades. Tresana.Data.DataAccess será el que contenga el contexto para EntityFramework. Tresana.Web.Api contendrá los servicios que expondremos a través de nuestra API REST, y Tresana.Web.Api.Models incluirá los modelos de las entidades. Esto último se debe a que no queremos acoplar nuestra api a nuestro modelo de dominio, por lo que generaremos lo que se conoce como DTO (DataTransferObjects). Estos objetos permitirán enviar únicamente los datos que deseo, además de moldearse mejor a las necesidades de la api rest, sin las restricciones de EntityFramework.
+Lupi.Data.Entities será el proyecto en el que colocaremos nuestras entidades. Lupi.Data.DataAccess será el que contenga el contexto para EntityFramework y maneje la lógica del acceso a datos. Lupi.Web.Api contendrá los servicios que expondremos a través de nuestra API REST, y Lupi.Web.Api.Models incluirá los modelos de las entidades. Esto último se debe a que no queremos acoplar nuestra api a nuestro modelo de dominio, por lo que generaremos lo que se conoce como DTO (DataTransferObjects). Estos objetos permitirán enviar únicamente los datos que deseo, además de moldearse mejor a las necesidades de la API REST, sin las restricciones de EntityFramework.
 
 ### Agregando nuestro dominio
 En el proyecto Tresana.Data.Entities, cree las entidades reflejadas en el siguiente diagrama.
