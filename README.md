@@ -94,11 +94,11 @@ Es posible también unir el ```git add``` y el ```git commit``` en una sola sent
 
 ```git commit -a -m "Este commit incluye todos los archivos que podían ser agregados"```
 
-###Las branches de Git
+### Las branches de Git
 
 Git permite utilizar diferentes branches para mantener distintas versiones del código en paralelo. El estándar que se utiliza en el curso es [gitflow](http://nvie.com/posts/a-successful-git-branching-model/).
 
-####```git branch```
+#### ```git branch```
 
 Permite listar, crear, o eliminar ramas.
 
@@ -173,7 +173,7 @@ Si quisieramos elegir otro editor en lugar de Vim, como por ejemplo nano:
 
 ```git config core.editor "nano"```
 
-####```git remote```
+#### ```git remote```
 Este comando permite gestionar los repositorios remotos. En caso de que hayamos inicializado el repositorio con ```git init``` también podemos usarlo para agregar un servidor de repositorio.
 
 ```git remote add origin https://github.com/DisAplicaciones2ORT0316/Clase2.git```
@@ -193,7 +193,7 @@ También se puede hacer con una única rama.
 
 En caso de setear un branch local para que siga a una branch remota, utilizar este comando permite hacer un ```fetch``` y luego un ```merge``` de la rama remota con la rama local.
 
-####```git push```
+#### ```git push```
 
 Este último comando lo que realiza es enviar todos los commits realizados en el repositorio local al repositorio remoto.
 ```git remote push origin develop```
