@@ -30,7 +30,7 @@ Para simplificar la arquitectura de este trabajo, simplemente se trabajará con 
 
 ## Comienzo del desarrollo de LUPI
 
-A lo largo del curso, utilizaremos el desarrollo de este producto (LUPI) o como ejemplo para navegar entre las tecnologías correspondientes. Como ya dijimos, desarrollaremos LUPI, un tracker de la actividad de nuestras mascotas.
+A lo largo del curso, utilizaremos el desarrollo de este producto (LUPI) como ejemplo para navegar entre las tecnologías correspondientes. Como ya dijimos, el mismo es un sistema de trackeo de la actividad de nuestras mascotas.
 
 Para el desarrollo de hoy deberemos contar con las siguientes herramientas:
 
@@ -40,7 +40,7 @@ Para el desarrollo de hoy deberemos contar con las siguientes herramientas:
 
 ### Creando la estructura del proyecto
 
-Para el desarrollo de la aplicación, deberá crearse una solución Lupu en Visual Studio con los siguientes proyectos:
+Para el desarrollo de la aplicación, deberá crearse una solución **Lupi** en Visual Studio con los siguientes proyectos:
  - Lupi.Web.Api: ASP.NET Web Application, con el formato vacío, importando Web API únicamente (como se muestra en las imágenes debajo)
  - Lupi.Web.Api.Models: Class Library
  - Lupi.Data.Entities: Class Library
@@ -49,7 +49,13 @@ Para el desarrollo de la aplicación, deberá crearse una solución Lupu en Visu
 ![](lib/img/Tresana/WebApplication.png)
 ![](lib/img/Tresana/EmptyWebApi.png)
 
-Lupi.Data.Entities será el proyecto en el que colocaremos nuestras entidades. Lupi.Data.DataAccess será el que contenga el contexto para EntityFramework y maneje la lógica del acceso a datos. Lupi.Web.Api contendrá los servicios que expondremos a través de nuestra API REST, y Lupi.Web.Api.Models incluirá los modelos de las entidades. Esto último se debe a que no queremos acoplar nuestra api a nuestro modelo de dominio, por lo que generaremos lo que se conoce como DTO (DataTransferObjects). Estos objetos permitirán enviar únicamente los datos que deseo, además de moldearse mejor a las necesidades de la API REST, sin las restricciones de EntityFramework.
+Lupi.Data.Entities será el proyecto en el que colocaremos nuestras entidades.
+
+Lupi.Data.DataAccess será el que contenga el contexto para EntityFramework y maneje la lógica del acceso a datos.
+
+Lupi.Web.Api contendrá los servicios que expondremos a través de nuestra API REST.
+
+Lupi.Web.Api.Models incluirá los modelos de las entidades. Esto último se debe a que no queremos acoplar nuestra api a nuestro modelo de dominio, por lo que generaremos lo que se conoce como DTO (DataTransferObjects). Estos objetos permitirán enviar únicamente los datos que deseo, además de moldearse mejor a las necesidades de la API REST, sin las restricciones de EntityFramework.
 
 ### Agregando nuestro dominio
 En el proyecto Lupi.Data.Entities, cree las entidades reflejadas en el siguiente diagrama.
