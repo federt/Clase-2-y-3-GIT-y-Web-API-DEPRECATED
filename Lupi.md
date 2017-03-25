@@ -12,11 +12,11 @@ Los usuarios acceden a la web, se conectan al wifi, y establecen una conexión c
 
 A continuación se presenta un bosquejo de la arquitectura que podría modelar el sistema. Su funcionamiento es muy simple:
 
-1) Cada mascota tiene un *collar* que sensa datos del perro y de su ambiente en tiempo real.
-2) El mismo envía frecuentemente datos por bluetooth a diferentes *receptores de señales bluetooth* que se encuentran por la ciudad.
-3) Los dispositivos/beacons bluetooth envían los datos a un *router* quien mediante HTTP los envía al backend de la aplicación.
-4) El *Backend* interpreta, procesa y almacena los datos enviados por los collares
-5) Se tiene un *Frontend* (aplicación web) que permite gestionar, mantener y visualizar la información de las mascotas, dueños, collares, entre otros.
+1) Cada mascota tiene un **collar** que sensa datos del perro y de su ambiente en tiempo real.
+2) El mismo envía frecuentemente datos por bluetooth a diferentes **receptores de señales bluetooth** que se encuentran por la ciudad.
+3) Los dispositivos/beacons bluetooth envían los datos a un **router** quien mediante HTTP los envía al backend de la aplicación.
+4) El **Backend** interpreta, procesa y almacena los datos enviados por los collares
+5) Se tiene un **Frontend** (aplicación web) que permite gestionar, mantener y visualizar la información de las mascotas, dueños, collares, entre otros.
 
 ![](lib/img/Arq_altonivel.png)
 
