@@ -4,11 +4,27 @@ LUPI se basa en un pequeño dispositivo que se coloca sobre nuestras mascotas (p
 
 Tiene dos partes fundamentales: el dispositivo que se coloca sobre la mascota y la app mobile desde la cual se tiene el manejo y seguimiento de los datos enviados. En un futuro también se desea poder contar con una web para que los usuarios también puedan usar el sisema.
 
-Los usuarios bajan la app, se conectan al wifi, y establecen una conexión con el dispositivo sobre el collar. Para cada mascota a su vez se pueden crear perfiles, donde para cada uno recibiremos datos como temperatura,  si está agitado o descansando, su ubicación (para estar seguros de que se encuentre en donde queremos), e incluso su “visión” a partir de la implementación de una cámara en el disposiitivo. Con estos datos se podrían generar estadísticas y reportes que hablen de nuestra mascota. Además, el equipo pensó en la posibilidad de aumentar la interacción con la mascota a través de mensajes de voz o instrucciones que pueden ser mandadas desde la aplicación del dueño y reproducidas en altavoz del dispositivo.
+Los usuarios acceden a la web, se conectan al wifi, y establecen una conexión con el dispositivo sobre el collar. Para cada mascota a su vez se pueden crear perfiles, donde para cada uno recibiremos datos como temperatura,  si está agitado o descansando, su ubicación (para estar seguros de que se encuentre en donde queremos), e incluso su “visión” a partir de la implementación de una cámara en el disposiitivo. Con estos datos se podrían generar estadísticas y reportes que hablen de nuestra mascota.
 
-Algunas posibles vistas de la aplicación son las siguientes:
+## Entendiendo cómo funciona
 
-IMAGEN 1
+### Arquitectura a alto nivel
+
+A continuación se presenta un bosquejo de la arquitectura que podría modelar el sistema. Su funcionamiento es muy simple:
+
+1) Cada mascota tiene un *collar* que sensa datos del perro y de su ambiente en tiempo real.
+2) El mismo envía frecuentemente datos por bluetooth a diferentes *receptores de señales bluetooth* que se encuentran por la ciudad.
+3) Los dispositivos/beacons bluetooth envían los datos a un *router* quien mediante HTTP los envía al backend de la aplicación.
+4) El *Backend* interpreta, procesa y almacena los datos enviados por los collares
+5) Se tiene un *Frontend* (aplicación web) que permite gestionar, mantener y visualizar la información de las mascotas, dueños, collares, entre otros.
+
+![](lib/img/Arq_altonivel.png)
+
+### Arquitectura simplificada para la primer parte del curso
+
+Para simplificar la arquitectura de este trabajo, simplemente se trabajará con la tecnología del lado del servidor. El resto de las piezas serán simuladas a partir de un cliente HTTP como lo puede ser Postman.
+
+![](lib/img/Arq_simp.png)
 
 ## Comienzo del desarrollo de LUPI
 
