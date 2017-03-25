@@ -49,16 +49,18 @@ Para el desarrollo de la aplicación, deberá crearse una solución **Lupi** en 
 ![](lib/img/Tresana/WebApplication.png)
 ![](lib/img/Tresana/EmptyWebApi.png)
 
-Lupi.Data.Entities será el proyecto en el que colocaremos nuestras entidades.
+**Lupi.Data.Entities** será el proyecto en el que colocaremos nuestras entidades.
 
-Lupi.Data.DataAccess será el que contenga el contexto para EntityFramework y maneje la lógica del acceso a datos.
+**Lupi.Data.DataAccess** será el que contenga el contexto para Entity Framework y maneje la lógica del acceso a datos.
 
-Lupi.Web.Api contendrá los servicios que expondremos a través de nuestra API REST.
+**Lupi.Web.Api** contendrá los servicios que expondremos a través de nuestra API REST.
 
-Lupi.Web.Api.Models incluirá los modelos de las entidades. Esto último se debe a que no queremos acoplar nuestra api a nuestro modelo de dominio, por lo que generaremos lo que se conoce como DTO (DataTransferObjects). Estos objetos permitirán enviar únicamente los datos que deseo, además de moldearse mejor a las necesidades de la API REST, sin las restricciones de EntityFramework.
+**Lupi.Web.Api.Models** incluirá los modelos de las entidades. Esto último se debe a que no queremos acoplar nuestra api a nuestro modelo de dominio, por lo que generaremos lo que se conoce como DTO (DataTransferObjects). Estos objetos permitirán enviar únicamente los datos que deseo, además de moldearse mejor a las necesidades de la API REST, sin las restricciones de EntityFramework.
 
 ### Agregando nuestro dominio
-En el proyecto Lupi.Data.Entities, cree las entidades reflejadas en el siguiente diagrama.
+
+
+En el proyecto Lupi.Data.Entities, crearemos las entidades reflejadas en el siguiente diagrama.
 
 Para entender un poco más el problema se comenzó analizando los diferentes participantes del mismo. La idea se basa en que los usuarios puedan tener control sobre sus perros (dónde se encuentra, si está fatigado, etc.), por lo que los dos participantes más “importantes” son los perros y dueños. Toda la información que el dueño quiere obtener de su perro debe ser obtenida y enviada hasta él por lo que se necesita un intermediario. Éste último es el collar, ya que se encarga de tomar todos los datos.
 
@@ -66,7 +68,7 @@ La realidad es que un dueño puede tener varios perros y la aplicación debe per
 
 ![](lib/img/Tresana/UMLClasses.png)
 
-A continuación, debemos agregar EntityFramework al proyecto de DataAccess. Una vez agregado, debemos crear la clase TresanaContext en DataAccess, y agregarle una referencia al proyecto de Tresana.Data.Entities para poder utilizar las entidades.
+A continuación, debemos agregar Entity Framework al proyecto de DataAccess. Una vez agregado, debemos crear la clase TresanaContext en DataAccess, y agregarle una referencia al proyecto de Tresana.Data.Entities para poder utilizar las entidades.
 
 ```C#
 
