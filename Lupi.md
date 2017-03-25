@@ -1,10 +1,12 @@
 # LUPI
 
+![](lib/img/dog_collar.jpg)
+
 LUPI se basa en un pequeño dispositivo que se coloca sobre nuestras mascotas (por ejemplo sobre su collar), permitiendo tener una enormidad de datos en tiempo real sobre los mismos. Este funciona a partir de tecnología inteligente para tener un seguimiento de la ubicación y actividad de las mismas.
 
 Tiene dos partes fundamentales: el dispositivo que se coloca sobre la mascota y la app mobile desde la cual se tiene el manejo y seguimiento de los datos enviados. En un futuro también se desea poder contar con una web para que los usuarios también puedan usar el sisema.
 
-Los usuarios acceden a la web, se conectan al wifi, y establecen una conexión con el dispositivo sobre el collar. Para cada mascota a su vez se pueden crear perfiles, donde para cada uno recibiremos datos como temperatura,  si está agitado o descansando, su ubicación (para estar seguros de que se encuentre en donde queremos), e incluso su “visión” a partir de la implementación de una cámara en el disposiitivo. Con estos datos se podrían generar estadísticas y reportes que hablen de nuestra mascota.
+Los usuarios acceden a la web y establecen una conexión con el dispositivo sobre el collar. Para cada mascota a su vez se pueden crear perfiles, donde para cada uno recibiremos datos como temperatura,  si está agitado o descansando, su ubicación (para estar seguros de que se encuentre en donde queremos), e incluso su “visión” a partir de la implementación de una cámara en el disposiitivo. Con estos datos se podrían generar estadísticas y reportes que hablen de nuestra mascota.
 
 ## Entendiendo cómo funciona
 
