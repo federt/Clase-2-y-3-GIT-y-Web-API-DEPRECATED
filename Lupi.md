@@ -350,6 +350,19 @@ Acceder a [postman](https://www.getpostman.com/) y probar las funcionalidades cr
 
 ![](lib/img/Web_api_5.png)
 
+Donde nuestra response HTTP es:
+
+``` HTTP/1.1 200 OK
+Cache-Control: max-age=1200
+Content-Length: []
+Content-Type: application/json; charset=utf-8
+Server: Microsoft-IIS/10.0
+Date: Sun, 26 Mar 2017 23:32:08 GMT
+
+[]
+```
+
+
 ### Moviendo la lógica a servicios
 Tener los métodos con lógica dentro de los controladores no parece la mejor opción. Además, nuestra api depende del paquete de Entities, algo que nos propusimos evitar desde el principio. Para lograrlo, crearemos un nuevo proyecto: Tresana.Web.Services.
 En el proyecto de Services, incluiremos una referencia a Entities y a DataAccess, y serán los encargados de manejar la lógica de negocio de nuestra aplicación.
