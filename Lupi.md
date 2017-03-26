@@ -192,22 +192,6 @@ Por ejemplo, si queremos controlar el header de cache, para devolver los usuario
      }
  }
 ```
-
-Probando con un Postman:
-
-1) Escribimos la llamada a la API.
-
-![](lib/img/Web_Api_3.png)
-
-2) Vemos como se ejecuta
-
-![](lib/img/Web_api_4.png)
-
-3) Vemos el resultado de la ejecución en el Postman
-
-![](lib/img/Web_api_5.png)
-
-
 #### ```IHttpActionResult```
 
 Con esta opción, obtenemos una mayor flexibilidad a la hora de realizar los mensajes de respuesta. En general usaremos las implementaciones de esta clase disponibles en [System.Web.Http.Results](https://msdn.microsoft.com/en-us/library/system.web.http.results.aspx). La clase ```ApiController``` define métodos uqe permiten retornar estos resultados. Para retornar algo similar a lo visto con ```HttpResponseMessage```, el código quedaría de la siguiente manera.
@@ -331,6 +315,18 @@ Cree la funcionalidad necesaria para soportar métodos especificados.
 ### Probando la aplicación con POSTMAN
 
 Acceder a [postman](https://www.getpostman.com/) y probar las funcionalidades creadas.
+
+1) Escribimos la llamada a la API.
+
+![](lib/img/Web_Api_3.png)
+
+2) Vemos como se ejecuta
+
+![](lib/img/Web_api_4.png)
+
+3) Vemos el resultado de la ejecución en el Postman
+
+![](lib/img/Web_api_5.png)
 
 ### Moviendo la lógica a servicios
 Tener los métodos con lógica dentro de los controladores no parece la mejor opción. Además, nuestra api depende del paquete de Entities, algo que nos propusimos evitar desde el principio. Para lograrlo, crearemos un nuevo proyecto: Tresana.Web.Services.
