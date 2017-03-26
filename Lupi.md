@@ -71,27 +71,32 @@ Se adjunta un modelo de dominio de que podría modelar lo descrito anteriormente
 
 ### Agregando el acceso a datos
 
-A continuación, debemos agregar Entity Framework al proyecto de DataAccess. Una vez agregado, debemos crear la clase TresanaContext en DataAccess, y agregarle una referencia al proyecto de Tresana.Data.Entities para poder utilizar las entidades.
+A continuación, debemos agregar Entity Framework al proyecto de DataAccess. Una vez agregado, debemos crear la clase LupiDbContext en DataAccess, y agregarle una referencia al proyecto de Lupi.Data.Entities para poder utilizar las entidades.
+
+IMAGEN DEL AGREGADO DE LA REFERENCIA FACIL
 
 ```C#
 
-using Tresana.Data.Entities;
 using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Tresana.Data.DataAccess
+namespace Lupi.Data.DataAccess
 {
-    public class TresanaContext : DbContext
+    public class LupiDbContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public DbSet<Task> Tasks { get; set; }
-        public DbSet<Project> Projects { get; set; }
-        public DbSet<State> States { get; set; }
-        public DbSet<Team> Teams { get; set; }
+        public DbSet<Breed> Breeds { get; set; }
+        public DbSet<Base64Image> Images { get; set; }
+        public DbSet<Collar> Collars { get; set; }
+        public DbSet<Owner> Owners { get; set; }
+        public DbSet<Pet> Pets { get; set; }
     }
 }
+
 ```
 
-![](lib/img/Tresana/EntitiesProjectReference.png)
+REFERENCIAS DEL PROYECTO
 
 ### Creando el primer Controller - Owner
 
@@ -118,9 +123,9 @@ Se creará la siguiente clase:
 ```C#
 using System.Web.Http;
 
-namespace Tresana.Web.Api.Controllers
+namespace Lupi.Web.Api.Controllers
 {
-    public class UsersController : ApiController
+    public class BreedsController : ApiController
     {
         
     }
@@ -157,20 +162,20 @@ Por ejemplo, si queremos controlar el header de cache, para devolver los usuario
 
 ```C#
 
-public HttpResponseMessage Get()
-{
+ public HttpResponseMessage Get()
+ {
+     using (LupiDbContext context = new LupiDbContext())
+     {
 
-    using(TresanaContext ctx = new TresanaContext()){
-        
-        IEnumerable<User> users = ctx.Users.ToList();
-        HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, users);
-        response.Headers.CacheControl = new CacheControlHeaderValue()
-            {
-                MaxAge = TimeSpan.FromMinutes(20)
-            };
-    }
-    return response;
-}
+         IEnumerable<Breed> breeds = context.Breeds.ToList();
+         HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, breeds);
+         response.Headers.CacheControl = new CacheControlHeaderValue()
+         {
+             MaxAge = TimeSpan.FromMinutes(20)
+         };
+         return response;
+     }
+ }
 ```
 
 ####```IHttpActionResult```
@@ -181,19 +186,19 @@ Con esta opción, obtenemos una mayor flexibilidad a la hora de realizar los men
 
 public IHttpActionResult Get()
 {
-
-    IEnumerable<User> users;
-    using(TresanaContext ctx = new TresanaContext())
+    IEnumerable<Breed> breeds;
+    
+    using(LupiDbContext context = new LupiDbContext())
     {
 
-        users = ctx.Users.ToList();
+        breeds = context.Breeds.ToList();
     }
     
-    if(users == null)
+    if(breeds == null)
     {
         return NotFound();
     }
-    return Ok(users);
+    return Ok(breeds);
 }
 ```
 
