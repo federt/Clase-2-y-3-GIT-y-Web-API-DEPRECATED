@@ -170,6 +170,8 @@ namespace Lupi.Web.Api.Controllers
 
 En Web Api, los controladores heredan de una clase llamada ApiController. En MVC, heredan de la clase Controller.
 
+#### El retorno de nuestros controllers: Action Results
+
 Los controladores en ASP.NET Web API retornan lo que se conoce como Action Results. 
 Una acción de un controlador puede retornar cualquiera de las siguientes opciones:
 1. ```void```
