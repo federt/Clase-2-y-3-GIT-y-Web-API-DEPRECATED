@@ -117,14 +117,21 @@ Luego debemos pensar las acciones que efectuaremos sobre las razas:
 
 |     URI     | Verbo | Descripción |
 |-------------|-------|-------------|
-|/api/users   | GET   |Obtener una lista de todos usuarios|
-|/api/users   | POST  |Crear un usuario|
-|/api/users/1 | GET   |Obtener los datos del usuario 1|
-|/api/users/1 | PUT   |Actualizar los datos del usuario 1|
-|/api/users/1 | DELETE|Eliminar el usuario 1|
+|/api/breeds   | GET   |Obtener una lista de todas las razas|
+|/api/breeds   | POST  |Crear una raza|
+|/api/breeds/1 | GET   |Obtener los datos de la raza 1|
+|/api/breeds/1 | PUT   |Actualizar los datos de la raza 1|
+|/api/breeds/1 | DELETE|Eliminar la raza 1|
 
-Teniendo entonces las uris definidas, debemos crear una clase que nos permita exponer estos métodos. Para ello, debemos crear un controlador. Un _controlador_ es un objeto que maneja los pedidos HTTP. 
-Para crear el primer controlodor, debemos seleccionar nuestro proyecto de Web API, y seleccionar con el botón derecho la carpeta Controllers. Allí seleccionamos la opción de Agregar Item > Controller. Esto abrirá el diálogo para la creación de un controller. Seleccionamos la opción de crear un controlador vacío y el nombre sera UsersController.
+Teniendo entonces las uris definidas, debemos crear una clase que nos permita exponer estos métodos. Para ello, debemos crear un controlador. 
+
+**Un _controlador_ es un objeto que maneja los pedidos HTTP. **
+
+Para crear el primer controlodor, debemos seleccionar nuestro proyecto de Web API, y seleccionar con el botón derecho la carpeta Controllers. Allí seleccionamos la opción de Agregar Item > Controller. Esto abrirá el diálogo para la creación de un controller. Seleccionamos la opción de crear un controlador (puede ser vacío o con operaciones de lectura y escritura) y el nombre sera **BreedsController**.
+
+![](lib/img/Web_api_1.png)
+
+![](lib/img/Web_api_2.png)
 
 Se creará la siguiente clase:
 
