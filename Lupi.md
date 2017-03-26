@@ -300,7 +300,7 @@ public class BreedsController : ApiController
 
     [Route("breeds/{breedId}")]
     [HttpGet]
-    public User FindBreedByID(Guid breedId)
+    public Breed FindBreedByID(Guid breedId)
     {
         //Código para obtener la raza.
     }
@@ -338,4 +338,4 @@ En el proyecto de Services, incluiremos una referencia a Entities y a DataAccess
 
 #### Ejercicio:
 
-Mueva la lógica de las acciones del controller de usuarios a un UserService.
+Mueva la lógica de las acciones del controller de usuarios a un BreedsService o BreedsBusinessLogic.
