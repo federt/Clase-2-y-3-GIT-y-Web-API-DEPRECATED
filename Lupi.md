@@ -86,6 +86,8 @@ using System.Threading.Tasks;
 
 namespace Lupi.Data.DataAccess
 {
+    public LupiDbContext() :base("name=Lupi") { }
+    
     public class LupiDbContext : DbContext
     {
         public DbSet<Breed> Breeds { get; set; }
