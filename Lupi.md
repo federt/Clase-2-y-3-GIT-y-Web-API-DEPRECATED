@@ -46,8 +46,8 @@ Para el desarrollo de la aplicación, deberá crearse una solución **Lupi** en 
  - **Lupi.Data.Entities**: Class Library
  - **Lupi.Data.DataAccess**: Class Library
 
-![](lib/img/Tresana/WebApplication.png)
-![](lib/img/Tresana/EmptyWebApi.png)
+![](lib/img/3.png)
+![](lib/img/Creacion_Proyecto.png)
 
 **Lupi.Data.Entities** será el proyecto en el que colocaremos nuestras entidades.
 
@@ -98,14 +98,20 @@ namespace Lupi.Data.DataAccess
 
 REFERENCIAS DEL PROYECTO
 
-### Creando el primer Controller - Owner
+### Creando el primer Controller - Breeds
 
-Antes de crear el controlador, debemos diseñar la api que vamos a exponer, dada la clase que queremos exponer. En primer lugar debemos pensar las acciones que efectuaremos sobre los usuarios: 
-- Obtener una lista
+Estudiemos en primer lugar la estructura del proyecto. Discutir con el docente en clase.
+
+![](lib/img/Estructura_Proyecto.png)
+
+
+Antes de crear el controlador, debemos diseñar la api que vamos a exponer, dada la clase que queremos exponer.
+Luego debemos pensar las acciones que efectuaremos sobre las razas: 
+- Obtener todas las razas (o un subconjunto de las mismas)
 - Obtener uno en particular
-- Crear uno
+- Crear una
 - Actualizar sus datos
-- Borrar un usuario
+- Borrar una raza
 
 |     URI     | Verbo | Descripción |
 |-------------|-------|-------------|
