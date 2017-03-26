@@ -161,7 +161,7 @@ En todos los casos, el framework utiliza formateadores para serializar el valor 
 
 Estudiaremos las opciones 2 y 3.
 
-####```HttpResponseMessage```
+#### ```HttpResponseMessage```
 Esta opción brinda mucho control sobre el mensaje de respuesta, permitiendo ingresar headers particulares, o modificar el formato del contenido.
 
 Por ejemplo, si queremos controlar el header de cache, para devolver los usuarios, el método sería:
@@ -184,7 +184,7 @@ Por ejemplo, si queremos controlar el header de cache, para devolver los usuario
  }
 ```
 
-####```IHttpActionResult```
+#### ```IHttpActionResult```
 
 Con esta opción, obtenemos una mayor flexibilidad a la hora de realizar los mensajes de respuesta. En general usaremos las implementaciones de esta clase disponibles en [System.Web.Http.Results](https://msdn.microsoft.com/en-us/library/system.web.http.results.aspx). La clase ```ApiController``` define métodos uqe permiten retornar estos resultados. Para retornar algo similar a lo visto con ```HttpResponseMessage```, el código quedaría de la siguiente manera.
 
@@ -210,7 +210,7 @@ public IHttpActionResult Get()
 
 En caso de desearlo, es posible implementar la interfaz para obtener mensajes de respuestas personalizados. En caso de desearlo, deberán investigar por su cuenta cómo realizarlo.
 
-###Ruteo por atributos
+### Ruteo por atributos
 
 _Routing_ es la manera en que Web API conecta una URI a una acción de un controlador. En Web API 2 se introduce lo que se conoce como _attribute routing_ que, como indica su nombre, utiliza los atributos para definir rutas. Esto brinda más control sobre las URIs. 
 En la primer versión del framework, se utilizaba lo que se conoce como _convention routing_. Para utilizarlo, se definían templates de rutas (strings parametrizados), y luego el framework emparejaba una uri con el tamplate para decidir qué acción ejecutar. Sin embargo, este tipo de routing dificultaba utilizar algunos patrones comunes en APIs REST, como objetos con relaciones. Ej: Las tareas de un usuario.
@@ -312,6 +312,6 @@ Acceder a [postman](https://www.getpostman.com/) y probar las funcionalidades cr
 Tener los métodos con lógica dentro de los controladores no parece la mejor opción. Además, nuestra api depende del paquete de Entities, algo que nos propusimos evitar desde el principio. Para lograrlo, crearemos un nuevo proyecto: Tresana.Web.Services.
 En el proyecto de Services, incluiremos una referencia a Entities y a DataAccess, y serán los encargados de manejar la lógica de negocio de nuestra aplicación.
 
-####Ejercicio:
+#### Ejercicio:
 
 Mueva la lógica de las acciones del controller de usuarios a un UserService.
