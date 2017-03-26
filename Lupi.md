@@ -193,6 +193,21 @@ Por ejemplo, si queremos controlar el header de cache, para devolver los usuario
  }
 ```
 
+Probando con un Postman:
+
+1) Escribimos la llamada a la API.
+
+![](lib/img/Web_api_3.png)
+
+2) Vemos como se ejecuta
+
+![](lib/img/Web_api_4.png)
+
+3) Vemos el resultado de la ejecución en el Postman
+
+![](lib/img/Web_api_5.png)
+
+
 #### ```IHttpActionResult```
 
 Con esta opción, obtenemos una mayor flexibilidad a la hora de realizar los mensajes de respuesta. En general usaremos las implementaciones de esta clase disponibles en [System.Web.Http.Results](https://msdn.microsoft.com/en-us/library/system.web.http.results.aspx). La clase ```ApiController``` define métodos uqe permiten retornar estos resultados. Para retornar algo similar a lo visto con ```HttpResponseMessage```, el código quedaría de la siguiente manera.
@@ -280,21 +295,21 @@ Veamos un ejemplo de una ruta definida usando un atributo
 
 ```C#
 
-public class UsersController : ApiController
+public class BreedsController : ApiController
 {
 
-    [Route("users/{userId}")]
+    [Route("breeds/{breedId}")]
     [HttpGet]
-    public User FindUserById(long userId)
+    public User FindBreedByID(Guid breedId)
     {
-        //Código para obtener el usuario.
+        //Código para obtener la raza.
     }
 }
 
 ```
 
 El string definido luego de la etiqueta Route es el template de URI para la ruta. 
-Al recibir un request, Web API intenta igualar la URI entrante con el template. En este caso, "users" es un segmento literal, y "{userId}" es un parámetro variable.
+Al recibir un request, Web API intenta igualar la URI entrante con el template. En este caso, "breeds" es un segmento literal, y "{breedId}" es un parámetro variable.
 
 Para poder restringir lo que se pasa en los parámetros, se usan las **restricciones**, las cuales veremos más adelante.
 
