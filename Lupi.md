@@ -110,7 +110,7 @@ namespace Lupi.Data.DataAccess
 
 ```
 
-No debemos olvidar tampoco agregar el string de conexión para SQL Server. El mismo lo agregamos en el app.config de nuestro proyecto de acceso a datos (Lupi.Data.DataAccess), así como también en nuestra Api (Lupi.Web.Api).
+No debemos olvidar tampoco agregar el string de conexión para SQL Server. El mismo lo agregamos en el app.config de nuestro proyecto de acceso a datos (Lupi.Data.DataAccess), así como también en el web.config de nuestra Api (Lupi.Web.Api).
 
 ```xml
   <connectionStrings>
