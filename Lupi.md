@@ -73,7 +73,9 @@ Se adjunta un modelo de dominio de que podría modelar lo descrito anteriormente
 
 A continuación, debemos agregar Entity Framework al proyecto de DataAccess. Una vez agregado, debemos crear la clase LupiDbContext en DataAccess, y agregarle una referencia al proyecto de Lupi.Data.Entities para poder utilizar las entidades.
 
-IMAGEN DEL AGREGADO DE LA REFERENCIA FACIL
+
+![](lib/img/Agregando_REF_EF_1.png)
+![](lib/img/Agregando_Ref_EF_2.png)
 
 ```C#
 
@@ -96,7 +98,7 @@ namespace Lupi.Data.DataAccess
 
 ```
 
-REFERENCIAS DEL PROYECTO
+![](lib/img/Agregando_REF_EF_3.png)
 
 ### Creando el primer Controller - Breeds
 
