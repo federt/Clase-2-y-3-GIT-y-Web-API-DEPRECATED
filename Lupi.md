@@ -66,7 +66,7 @@ Para entender un poco más el problema se comenzó analizando los diferentes par
 
 La realidad es que un dueño puede tener varios perros y la aplicación debe permitirlo, de la misma forma asumimos que los perros tienen un único dueño. Entonces, un dueño puede poseer varios collares, donde a cada uno de éstos puede estar asignado como mucho a un perro. Para permitir el intercambio de collares entre perros, en caso de que el dueño tenga más perros que collares, un perro puede no tener asignado un collar así como un collar puede no tener ningún perro.
 
-![](lib/img/Tresana/UMLClasses.png)
+![](lib/img/Lupi_class_diagram.png)
 
 A continuación, debemos agregar Entity Framework al proyecto de DataAccess. Una vez agregado, debemos crear la clase TresanaContext en DataAccess, y agregarle una referencia al proyecto de Tresana.Data.Entities para poder utilizar las entidades.
 
