@@ -41,10 +41,10 @@ Para el desarrollo de hoy deberemos contar con las siguientes herramientas:
 ### Creando la estructura del proyecto
 
 Para el desarrollo de la aplicación, deberá crearse una solución **Lupi** en Visual Studio con los siguientes proyectos:
- - Lupi.Web.Api: ASP.NET Web Application, con el formato vacío, importando Web API únicamente (como se muestra en las imágenes debajo)
- - Lupi.Web.Api.Models: Class Library
- - Lupi.Data.Entities: Class Library
- - Lupi.Data.DataAccess: Class Library
+ - **Lupi.Web.Api**: ASP.NET Web Application, con el formato vacío, importando Web API únicamente (como se muestra en las imágenes debajo)
+ - **Lupi.Web.Api.Models**: Class Library
+ - **Lupi.Data.Entities**: Class Library
+ - **Lupi.Data.DataAccess**: Class Library
 
 ![](lib/img/Tresana/WebApplication.png)
 ![](lib/img/Tresana/EmptyWebApi.png)
@@ -59,14 +59,17 @@ Para el desarrollo de la aplicación, deberá crearse una solución **Lupi** en 
 
 ### Agregando nuestro dominio
 
-
 En el proyecto Lupi.Data.Entities, crearemos las entidades reflejadas en el siguiente diagrama.
 
-Para entender un poco más el problema se comenzó analizando los diferentes participantes del mismo. La idea se basa en que los usuarios puedan tener control sobre sus perros (dónde se encuentra, si está fatigado, etc.), por lo que los dos participantes más “importantes” son los perros y dueños. Toda la información que el dueño quiere obtener de su perro debe ser obtenida y enviada hasta él por lo que se necesita un intermediario. Éste último es el collar, ya que se encarga de tomar todos los datos.
+Para entender un poco más el problema se comenzó analizando los diferentes participantes del mismo. La idea se basa en que los usuarios puedan tener control sobre sus mascotas (dónde se encuentra, si está fatigada, etc.), por lo que los dos participantes más “importantes” son las mascotas y los dueños. Toda la información que el dueño quiere obtener de su mascota debe ser obtenida y enviada hasta él por lo que se necesita un intermediario. Éste último es el collar, ya que se encarga de tomar todos los datos.
 
-La realidad es que un dueño puede tener varios perros y la aplicación debe permitirlo, de la misma forma asumimos que los perros tienen un único dueño. Entonces, un dueño puede poseer varios collares, donde a cada uno de éstos puede estar asignado como mucho a un perro. Para permitir el intercambio de collares entre perros, en caso de que el dueño tenga más perros que collares, un perro puede no tener asignado un collar así como un collar puede no tener ningún perro.
+La realidad es que un dueño puede tener varias mascotas y la aplicación debe permitirlo, de la misma forma asumimos (para simplificar) que las mascotas tienen un único dueño. Entonces, un dueño puede poseer varios collares, donde a cada uno de éstos puede estar asignado como mucho a una mascota. Para permitir el intercambio de collares entre perros, en caso de que el dueño tenga más perros que collares, un perro puede no tener asignado un collar así como un collar puede no tener ningún perro.
+
+Se adjunta un modelo de dominio de que podría modelar lo descrito anteriormente:
 
 ![](lib/img/Lupi_class_diagram.png)
+
+### Agregando el acceso a datos
 
 A continuación, debemos agregar Entity Framework al proyecto de DataAccess. Una vez agregado, debemos crear la clase TresanaContext en DataAccess, y agregarle una referencia al proyecto de Tresana.Data.Entities para poder utilizar las entidades.
 
@@ -90,7 +93,7 @@ namespace Tresana.Data.DataAccess
 
 ![](lib/img/Tresana/EntitiesProjectReference.png)
 
-### Creando el primer Controller - Usuario
+### Creando el primer Controller - Owner
 
 Antes de crear el controlador, debemos diseñar la api que vamos a exponer, dada la clase que queremos exponer. En primer lugar debemos pensar las acciones que efectuaremos sobre los usuarios: 
 - Obtener una lista
