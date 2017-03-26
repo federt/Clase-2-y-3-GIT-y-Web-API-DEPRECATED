@@ -75,7 +75,16 @@ A continuación, debemos agregar Entity Framework al proyecto de DataAccess. Una
 
 
 ![](lib/img/Agregando_REF_EF_1.png)
+
+
 ![](lib/img/Agregando_Ref_EF_2.png)
+
+
+![](lib/img/Agregando_REF_EF_3.png)
+
+
+Quedando así nuestro **contexto**:
+
 
 ```C#
 
@@ -100,9 +109,6 @@ namespace Lupi.Data.DataAccess
 
 
 ```
-
-![](lib/img/Agregando_REF_EF_3.png)
-
 
 No debemos olvidar tampoco agregar el string de conexión para SQL Server. El mismo lo agregamos en el app.config de nuestro proyecto de acceso a datos (Lupi.Data.DataAccess), así como también en nuestra Api (Lupi.Web.Api).
 
