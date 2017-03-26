@@ -96,9 +96,22 @@ namespace Lupi.Data.DataAccess
     }
 }
 
+
 ```
 
 ![](lib/img/Agregando_REF_EF_3.png)
+
+
+No debemos olvidar tampoco agregar el string de conexión para SQL Server. El mismo lo agregamos en el app.config de nuestro proyecto de acceso a datos (Lupi.Data.DataAccess), así como también en nuestra Api (Lupi.Web.Api).
+
+```xml
+  <connectionStrings>
+    <add name="Lupi"
+    connectionString="Data Source=GABRIEL;Initial Catalog=LupiDatabase;Integrated Security=true"
+    providerName="System.Data.SqlClient"/>
+  </connectionStrings>
+
+```
 
 ### Creando el primer Controller - Breeds
 
