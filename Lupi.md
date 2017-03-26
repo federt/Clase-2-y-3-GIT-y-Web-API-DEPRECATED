@@ -125,9 +125,9 @@ Luego debemos pensar las acciones que efectuaremos sobre las razas:
 
 Teniendo entonces las uris definidas, debemos crear una clase que nos permita exponer estos métodos. Para ello, debemos crear un controlador. 
 
-**Un _controlador_ es un objeto que maneja los pedidos HTTP. **
+** Un _controlador_ es un objeto que maneja los pedidos HTTP.**
 
-Para crear el primer controlodor, debemos seleccionar nuestro proyecto de Web API, y seleccionar con el botón derecho la carpeta Controllers. Allí seleccionamos la opción de Agregar Item > Controller. Esto abrirá el diálogo para la creación de un controller. Seleccionamos la opción de crear un controlador (puede ser vacío o con operaciones de lectura y escritura) y el nombre sera **BreedsController**.
+Para crear el primer controlador, debemos seleccionar nuestro proyecto de Web API, y seleccionar con el botón derecho la carpeta Controllers. Allí seleccionamos la opción de Agregar Item > Controller. Esto abrirá el diálogo para la creación de un controller. Seleccionamos la opción de crear un controlador (puede ser vacío o con operaciones de lectura y escritura) y el nombre sera **BreedsController**.
 
 ![](lib/img/Web_api_1.png)
 
@@ -197,7 +197,7 @@ Probando con un Postman:
 
 1) Escribimos la llamada a la API.
 
-![](lib/img/Web_api_3.png)
+![](lib/img/Web_Api_3.png)
 
 2) Vemos como se ejecuta
 
