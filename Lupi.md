@@ -94,11 +94,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Lupi.Data.DataAccess
-{
-    public LupiDbContext() :base("name=Lupi") { }
-    
+{    
     public class LupiDbContext : DbContext
     {
+        public LupiDbContext() :base("name=Lupi") { }
+     
         public DbSet<Breed> Breeds { get; set; }
         public DbSet<Base64Image> Images { get; set; }
         public DbSet<Collar> Collars { get; set; }
@@ -106,7 +106,6 @@ namespace Lupi.Data.DataAccess
         public DbSet<Pet> Pets { get; set; }
     }
 }
-
 
 ```
 
