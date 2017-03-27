@@ -234,7 +234,6 @@ public IHttpActionResult Get()
     
     using(LupiDbContext context = new LupiDbContext())
     {
-
         breeds = context.Breeds.ToList();
     }
     
@@ -246,9 +245,10 @@ public IHttpActionResult Get()
 }
 ```
 
+En el codigo anterior, si en la request no existe ninguna raza, el controller llama a ApiController.NotFound para crear una respuesta 404 (Not Found). De lo contrario, el controller llama a ApiController.OK, el cual crea un 200 (OK), que contiene las razas.
 
+En caso de desearlo, es posible implementar la interfaz para obtener mensajes de respuestas personalizados. En caso de desearlo, consultar con el docente de qué forma hacerlo.
 
-En caso de desearlo, es posible implementar la interfaz para obtener mensajes de respuestas personalizados. En caso de desearlo, deberán investigar por su cuenta cómo realizarlo.
 
 ### Ruteo por atributos
 
