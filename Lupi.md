@@ -216,7 +216,15 @@ Por ejemplo, si queremos controlar el header de cache, para devolver los usuario
 ```
 #### ```IHttpActionResult```
 
-Con esta opción, obtenemos una mayor flexibilidad a la hora de realizar los mensajes de respuesta. En general usaremos las implementaciones de esta clase disponibles en [System.Web.Http.Results](https://msdn.microsoft.com/en-us/library/system.web.http.results.aspx). La clase ```ApiController``` define métodos uqe permiten retornar estos resultados. Para retornar algo similar a lo visto con ```HttpResponseMessage```, el código quedaría de la siguiente manera.
+Con esta opción, obtenemos una mayor flexibilidad a la hora de realizar los mensajes de respuesta. En general usaremos las implementaciones de esta clase disponibles en [System.Web.Http.Results](https://msdn.microsoft.com/en-us/library/system.web.http.results.aspx). La clase ```ApiController``` define métodos que permiten retornar estos resultados.
+
+¿Qué ventajas provee?
+
+- Simplifica el Unit Testing de los Controllers. Discutir con el docente en clase el porqué.
+- Mueve la lógica común de creación de respuestas HTTP a clasess separadas.
+- Hace que la intención de nuestro controller sea mucho más clara, escondiendo los detalles a bajo nivel de construcción de la respuesta.
+
+Para retornar algo similar a lo visto con ```HttpResponseMessage```, el código quedaría de la siguiente manera.
 
 ```C#
 
@@ -237,6 +245,8 @@ public IHttpActionResult Get()
     return Ok(breeds);
 }
 ```
+
+
 
 En caso de desearlo, es posible implementar la interfaz para obtener mensajes de respuestas personalizados. En caso de desearlo, deberán investigar por su cuenta cómo realizarlo.
 
